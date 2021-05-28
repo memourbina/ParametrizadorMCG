@@ -1,0 +1,2 @@
+# ParametrizadorMCG
+Parametrizador MCG
