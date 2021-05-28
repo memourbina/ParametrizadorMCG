@@ -1,0 +1,15 @@
+﻿@model mcg_load.Models.DemandaMoving
+
+
+<div class="form-group">
+    @Html.DevExpress().ComboBox(settings =>
+    {
+        settings.Name = "Linea";
+       // settings.CallbackRouteValues = new { Controller = "Articulo", Action = "LineaPartial" };
+        settings.Properties.ValueType = typeof(String);
+        settings.Properties.TextField = "Nombre";
+        settings.Properties.ValueField = "Linea";
+        settings.Properties.CallbackPageSize = 20;
+        settings.Properties.ClientSideEvents.BeginCallback = "function(s, e) { e.customArgs['Planta'] = Planta.GetValue(); }";
+    }).BindList(mcg_load.Code.Helpers.LineasHelper.GetEscLineas(Model.Planta)).Bind(Model.Linea).GetHtml()
+</div>

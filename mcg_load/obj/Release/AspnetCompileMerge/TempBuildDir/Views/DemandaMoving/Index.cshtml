@@ -1,0 +1,140 @@
+@using System.Web.UI.WebControls
+@model mcg_load.Models.DemandaMoving
+
+@{
+    ViewBag.Title = "Articulos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Head {
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/ArticuloCopy/ArticuloCopy.css")"/>
+    <script type="text/javascript" src="@Url.Content("~/Content/ArticuloCopy/ArticuloCopy.js")"></script>
+}
+
+<script type="text/javascript">
+    var isResetRequired = false;
+
+    function OnSelectedPlantaChanged() {
+        isResetRequired = true;
+        gridView.GetEditor("Linea").PerformCallback();
+    }
+
+    function LineaComboBox_BeginCallback(s, e) {
+        e.customArgs["Planta"] = gridView.GetEditor("Planta01").GetValue();
+    }
+
+    function LineaComboBox_EndCallback(s, e) {
+        if (isResetRequired) {
+            isResetRequired = false;
+            s.SetSelectedIndex(0);
+        }
+    }
+
+</script>
+
+@section PageToolbar {
+    @Html.DevExpress().Menu(menuSettings =>
+    {
+        menuSettings.Name = "pageToolbar";
+
+        menuSettings.ItemAutoWidth = false;
+        menuSettings.AllowSelectItem = false;
+        menuSettings.ApplyItemStyleToTemplates = true;
+
+        menuSettings.SettingsAdaptivity.Enabled = true;
+        menuSettings.SettingsAdaptivity.EnableAutoHideRootItems = true;
+        menuSettings.SettingsAdaptivity.EnableCollapseRootItemsToIcons = true;
+        menuSettings.SettingsAdaptivity.CollapseRootItemsToIconsAtWindowInnerWidth = 600;
+
+        menuSettings.Width = Unit.Percentage(100);
+        menuSettings.ControlStyle.SeparatorWidth = Unit.Pixel(0);
+        menuSettings.ControlStyle.CssClass = "page-toolbar";
+
+        menuSettings.Styles.Item.CssClass = "item";
+        menuSettings.Styles.Item.VerticalAlign = VerticalAlign.Middle;
+
+        menuSettings.Images.Item.Width = Unit.Pixel(16);
+        menuSettings.Images.Item.Height = Unit.Pixel(16);
+
+        menuSettings.Items.Add(item =>
+        {
+            item.Enabled = false;
+            item.SetTemplateContent(template => ViewContext.Writer.Write("<h1>Articulos Vista</h1>"));
+        });
+
+        menuSettings.Items.Add(item =>
+        {
+            item.Name = "Edit";
+            item.Text = "Edit";
+            item.Alignment = MenuItemAlignment.Right;
+            item.AdaptivePriority = 2;
+            item.Image.Url = "Content/Images/edit.svg";
+        });
+        menuSettings.Items.Add(item =>
+        {
+            item.Name = "Delete";
+            item.Text = "Delete";
+            item.Alignment = MenuItemAlignment.Right;
+            item.AdaptivePriority = 2;
+            item.Image.Url = "Content/Images/delete.svg";
+        });
+        menuSettings.Items.Add(item =>
+        {
+            item.Name = "Export";
+            item.Text = "Export";
+            item.Alignment = MenuItemAlignment.Right;
+            item.AdaptivePriority = 2;
+            item.Image.Url = "Content/Images/export.svg";
+        });
+        
+
+        menuSettings.Items.Add(item =>
+        {
+            item.Name = "ToggleFilterPanel";
+            item.Text = "";
+            item.GroupName = "Filter";
+            item.Alignment = MenuItemAlignment.Right;
+            item.AdaptivePriority = 1;
+            item.Image.Url = "Content/Images/search.svg";
+            item.Image.UrlChecked = "Content/Images/search-selected.svg";
+        });
+        menuSettings.ClientSideEvents.ItemClick = "onPageToolbarItemClick";
+    }).GetHtml()
+
+    @Html.DevExpress().Panel(panelSettings =>
+    {
+        panelSettings.Name = "filterPanel";
+        panelSettings.Collapsible = true;
+        panelSettings.ControlStyle.CssClass = "filter-panel";
+
+        panelSettings.SettingsCollapsing.ExpandEffect = PanelExpandEffect.Slide;
+        panelSettings.SettingsCollapsing.AnimationType = AnimationType.None;
+        panelSettings.SettingsCollapsing.ExpandButton.Visible = false;
+
+        panelSettings.SetContent(() =>
+        {
+            Html.DevExpress().ButtonEdit(buttonEditSettings =>
+            {
+                buttonEditSettings.Name = "searchButtonEdit";
+                buttonEditSettings.Properties.ClearButton.DisplayMode = ClearButtonDisplayMode.Always;
+                buttonEditSettings.Properties.Caption = "Search";
+                buttonEditSettings.Width = Unit.Percentage(100);
+            }).GetHtml();
+        });
+
+        panelSettings.ClientSideEvents.Expanded = "onFilterPanelExpanded";
+        panelSettings.ClientSideEvents.Collapsed = "adjustPageControls";
+    }).GetHtml()
+}
+
+@section LeftPanelContent {
+    @Html.Partial("LeftPanelPartial")
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.Partial("DemandaMovePartial")
+}

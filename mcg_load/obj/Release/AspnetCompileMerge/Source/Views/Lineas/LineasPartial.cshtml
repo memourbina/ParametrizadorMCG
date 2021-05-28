@@ -1,0 +1,168 @@
+@using System.Web.UI.WebControls
+@using Microsoft.AspNet.Identity
+@using mcg_load.Code.Helpers
+@model List<mcg_load.Esc_Lineas>
+
+@{
+    var gridView = Html.DevExpress().GridView(gridViewSettings =>
+    {
+        gridViewSettings.Name = "gridView";
+        gridViewSettings.KeyFieldName = "Linea";
+
+        gridViewSettings.CallbackRouteValues = new
+        {
+            Controller = "Lineas",
+            Action = "LineasPartial"
+        };
+        gridViewSettings.CustomActionRouteValues = new { Controller = "Lineas", Action = "LineasCustomActionPartial" };
+        gridViewSettings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Lineas", Action = "LineasAddNewPartial" };
+        gridViewSettings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Lineas", Action = "LineasUpdatePartial" };
+
+        gridViewSettings.EnablePagingGestures = AutoBoolean.False;
+        gridViewSettings.SettingsResizing.ColumnResizeMode = ColumnResizeMode.Control;
+
+        gridViewSettings.ControlStyle.CssClass = "grid-view";
+        gridViewSettings.Width = Unit.Percentage(100);
+
+        gridViewSettings.Styles.Cell.Wrap = DefaultBoolean.False;
+        gridViewSettings.Styles.PagerBottomPanel.CssClass = "pager";
+        gridViewSettings.Styles.FocusedRow.CssClass = "focused";
+
+        gridViewSettings.SettingsBehavior.AllowFocusedRow = true;
+        gridViewSettings.SettingsBehavior.AllowSelectByRowClick = true;
+        gridViewSettings.SettingsBehavior.AllowEllipsisInText = true;
+        gridViewSettings.SettingsBehavior.AllowDragDrop = false;
+
+        gridViewSettings.SettingsSearchPanel.CustomEditorName = "searchButtonEdit";
+
+        gridViewSettings.SettingsEditing.Mode = GridViewEditingMode.PopupEditForm;
+        gridViewSettings.SettingsEditing.EditFormColumnCount = 2;
+
+        gridViewSettings.SettingsSearchPanel.CustomEditorName = "searchButtonEdit";
+
+        gridViewSettings.Settings.VerticalScrollBarMode = ScrollBarMode.Hidden;
+        gridViewSettings.Settings.HorizontalScrollBarMode = ScrollBarMode.Auto;
+        gridViewSettings.Settings.ShowHeaderFilterButton = true;
+
+        gridViewSettings.SettingsPager.PageSize = 30;
+        gridViewSettings.SettingsPager.EnableAdaptivity = true;
+        gridViewSettings.SettingsPager.PageSizeItemSettings.Visible = true;
+
+        gridViewSettings.SettingsExport.EnableClientSideExportAPI = true;
+        gridViewSettings.SettingsExport.ExportSelectedRowsOnly = true;
+
+        gridViewSettings.SettingsPopup.EditForm.SettingsAdaptivity.MaxWidth = 800;
+        gridViewSettings.SettingsPopup.EditForm.SettingsAdaptivity.Mode = PopupControlAdaptivityMode.Always;
+        gridViewSettings.SettingsPopup.EditForm.SettingsAdaptivity.VerticalAlign = PopupAdaptiveVerticalAlign.WindowCenter;
+
+        gridViewSettings.EditFormLayoutProperties.SettingsAdaptivity.AdaptivityMode = FormLayoutAdaptivityMode.SingleColumnWindowLimit;
+        gridViewSettings.EditFormLayoutProperties.SettingsAdaptivity.SwitchToSingleColumnAtWindowInnerWidth = 600;
+        gridViewSettings.EditFormLayoutProperties.ColCount = 2;
+
+        //gridViewSettings.EditFormLayoutProperties.Items.Add("Linea");
+        gridViewSettings.EditFormLayoutProperties.Items.Add("Planta");
+        //gridViewSettings.EditFormLayoutProperties.Items.Add("id_tipo_linea");
+        gridViewSettings.EditFormLayoutProperties.Items.Add("nombre");
+        gridViewSettings.EditFormLayoutProperties.Items.Add("descripcion");
+
+
+        gridViewSettings.EditFormLayoutProperties.Items.AddCommandItem(itemSettings =>
+        {
+            itemSettings.ColumnSpan = 2;
+            itemSettings.HorizontalAlign = FormLayoutHorizontalAlign.Right;
+        });
+
+        gridViewSettings.CommandColumn.Visible = true;
+        gridViewSettings.CommandColumn.ShowSelectCheckbox = true;
+        gridViewSettings.CommandColumn.SelectAllCheckboxMode = GridViewSelectAllCheckBoxMode.AllPages;
+        gridViewSettings.CommandColumn.VisibleIndex = 0;
+        gridViewSettings.CommandColumn.Width = Unit.Pixel(52);
+
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Linea";
+            columnSettings.Caption = "Linea";
+            columnSettings.Width = Unit.Pixel(150);
+            columnSettings.Visible = true;
+            columnSettings.SetDataItemTemplateContent(c =>
+            {
+                if (DataBinder.Eval(c.DataItem, "Linea") != null)
+                    ViewContext.Writer.Write(string.Format("<span class='votes-column'>{0}</span>", DataBinder.Eval(c.DataItem, "Linea")));
+            });
+        });
+
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Planta";
+            columnSettings.Caption = "Planta";
+            columnSettings.Width = Unit.Pixel(180);
+            columnSettings.EditorProperties().ComboBox(p =>
+            {
+                p.TextField = "Nombre";
+                p.ValueField = "Planta";
+                p.ValueType = typeof(string);
+                p.BindList(LineasHelper.GetCatPlantasList());
+            });
+        });
+
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "id_tipo_linea";
+            columnSettings.Caption = "Tipo Línea";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(80);
+            columnSettings.EditorProperties().ComboBox(p =>
+            {
+                p.TextField = "nombre";
+                p.ValueField = "id_tipo_linea";
+                p.ValueType = typeof(string);
+                p.BindList(LineasHelper.GetEscTipoLineaList());
+            });
+        });
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "nombre";
+            columnSettings.Caption = "nombre";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(80);
+
+        });
+
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "descripcion";
+            columnSettings.Caption = "descripcion";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+        });
+
+
+
+        gridViewSettings.ClientSideEvents.Init = "onGridViewInit";
+        gridViewSettings.ClientSideEvents.SelectionChanged = "onGridViewSelectionChanged";
+        gridViewSettings.ClientSideEvents.BeginCallback = "onGridViewBeginCallback";
+
+        //gridViewSettings.InitNewRow += (s, e) =>
+        //{
+        //    //e.NewValues["id_escenario"] = -1;
+        //    //e.NewValues["eliminado"] = false;
+        //    //e.NewValues["activo"] = true;
+        //    //e.NewValues["UserId"] = User.Identity.GetUserId();
+        //    //e.NewValues["activo"] = true;
+        //    //e.NewValues["fecha"] = DateTime.Now;
+
+        //};
+        gridViewSettings.CellEditorInitialize = (s, e) => { ((ASPxEdit)e.Editor).ValidationSettings.Display = Display.Dynamic; };
+    });
+    if (ViewBag.GeneralError != null)
+    {
+        gridView.SetEditErrorText(ViewBag.GeneralError);
+    }
+}
+
+@gridView.Bind(Model).GetHtml()

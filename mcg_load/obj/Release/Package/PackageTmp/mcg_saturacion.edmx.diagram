@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3a20439bbe524b60b702ade491af60c0" Name="Diagram1">
+        <EntityTypeShape EntityType="mcg_saturacionModel.AspNetRoles" Width="1.5" PointX="0.75" PointY="38.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcg_saturacionModel.AspNetUserClaims" Width="1.5" PointX="5.25" PointY="31.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcg_saturacionModel.AspNetUserLogins" Width="1.5" PointX="5.25" PointY="34.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcg_saturacionModel.AspNetUsers" Width="1.5" PointX="3" PointY="34.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcg_saturacionModel.Cat_Bitacora" Width="1.5" PointX="12.75" PointY="37.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcg_saturacionModel.CAT_Plantas" Width="1.5" PointX="8" PointY="28.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcg_saturacionModel.Esc_Actualizacion" Width="1.5" PointX="5.25" PointY="36.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcg_saturacionModel.Esc_Año" Width="1.5" PointX="10.5" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcg_saturacionModel.Esc_Articulos" Width="1.5" PointX="15.5" PointY="36.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcg_saturacionModel.Esc_Calendario" Width="1.5" PointX="8.25" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcg_saturacionModel.Esc_Cavidades" Width="1.5" PointX="20.75" PointY="37.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcg_saturacionModel.Esc_Demanda" Width="1.5" PointX="17.75" PointY="32.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcg_saturacionModel.Esc_Demanda_staging" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcg_saturacionModel.Esc_Escenario" Width="1.5" PointX="7.5" PointY="35.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcg_saturacionModel.Esc_File_Upload" Width="1.5" PointX="5.25" PointY="39.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcg_saturacionModel.Esc_Horas" Width="1.5" PointX="9.75" PointY="41.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcg_saturacionModel.Esc_Horas_staging" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcg_saturacionModel.Esc_HorasCorazones" Width="1.5" PointX="9.75" PointY="33.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcg_saturacionModel.Esc_HorasCorazones_staging" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcg_saturacionModel.Esc_Lineas" Width="1.5" PointX="7.5" PointY="43.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcg_saturacionModel.Esc_Lineas_staging" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcg_saturacionModel.Esc_Maquina" Width="1.5" PointX="10.25" PointY="37.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcg_saturacionModel.Esc_OEE" Width="1.5" PointX="12.75" PointY="41.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcg_saturacionModel.Esc_OEE_staging" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcg_saturacionModel.Esc_OEECorazones" Width="1.5" PointX="12.75" PointY="31.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcg_saturacionModel.Esc_OEEDesglose" Width="1.5" PointX="17.75" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcg_saturacionModel.Esc_Parametros" Width="1.5" PointX="20.75" PointY="42.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcg_saturacionModel.Esc_Rechazo" Width="1.5" PointX="20.75" PointY="31.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcg_saturacionModel.Esc_Tipo_Escenarios" Width="1.5" PointX="5.25" PointY="44" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcg_saturacionModel.Esc_Tipo_linea" Width="1.5" PointX="5.25" PointY="47.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcg_saturacionModel.Esc_Velocidad" Width="1.5" PointX="23.75" PointY="37.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcg_saturacionModel.vw_demanda" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcg_saturacionModel.vw_demanda01" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="mcg_saturacionModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefAspNetUsers41" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefAspNetUsers42" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefAspNetUsers43" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefAspNetUsers44" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefAspNetUsers50" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefAspNetUsers64" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefAspNetUsers65" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefAspNetUsers66" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefAspNetUsers67" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefAspNetUsers68" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefAspNetUsers69" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefAspNetUsers70" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefAspNetUsers71" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefAspNetUsers72" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefAspNetUsers73" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefAspNetUsers75" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefAspNetUsers76" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefAspNetUsers77" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefAspNetUsers78" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefAspNetUsers79" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefAspNetUsers80" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefAspNetUsers81" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefAspNetUsers82" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefAspNetUsers85" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefAspNetUsers86" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefAspNetUsers87" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefAspNetUsers90" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.UserId_Modifico" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_Calendario60" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_Escenario62" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefCAT_Plantas22" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefCAT_Plantas23" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefCAT_Plantas24" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefCAT_Plantas25" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefCAT_Plantas54" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefCAT_Plantas89" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_Año16" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_Año17" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_Año18" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_Año19" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_Año20" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_Año21" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_Calendario14" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_Articulos10" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_Articulos6" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_Articulos7" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_Articulos8" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_Articulos9" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_Escenario31" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_Lineas52" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_Maquina84" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_Calendario2" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_Calendario3" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_Calendario4" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_Calendario5" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_Escenario48" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_Escenario32" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_Escenario46" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_Escenario47" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_Escenario55" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_Escenario56" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_Escenario57" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_Escenario58" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_Escenario59" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_File_Upload29" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_Tipo_Escenarios30" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_Lineas12" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_Lineas11" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_Lineas13" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.RefEsc_Tipo_linea83" ManuallyRouted="false" />
+        <AssociationConnector Association="mcg_saturacionModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

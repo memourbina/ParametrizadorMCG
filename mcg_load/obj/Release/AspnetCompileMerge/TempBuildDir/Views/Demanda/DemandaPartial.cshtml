@@ -1,0 +1,438 @@
+@using System.Drawing
+@using System.Web.UI.WebControls
+@using mcg_load.Code.Helpers
+@model List<mcg_load.vw_demanda01>
+
+
+
+@{
+    var gridView = Html.DevExpress().GridView<mcg_load.vw_demanda01>(gridViewSettings =>
+    {
+        gridViewSettings.Name = "gridView";
+        gridViewSettings.KeyFieldName = "id_articulo;id_escenario;anio";
+
+        gridViewSettings.CallbackRouteValues = new
+        {
+            Controller = "Demanda",
+            Action = "DemandaPartial"
+        };
+        gridViewSettings.CustomActionRouteValues = new {Controller = "Demanda", Action = "DemandaCustomActionPartial"};
+        gridViewSettings.SettingsEditing.AddNewRowRouteValues = new {Controller = "Demanda", Action = "DemandaAddNewPartial"};
+        gridViewSettings.SettingsEditing.UpdateRowRouteValues = new {Controller = "Demanda", Action = "DemandaUpdatePartial"};
+        gridViewSettings.SettingsEditing.Mode = GridViewEditingMode.PopupEditForm;
+
+        gridViewSettings.SettingsBehavior.EnableCustomizationWindow = true;
+        gridViewSettings.Settings.ShowGroupPanel = true;
+        gridViewSettings.ClientSideEvents.CustomizationWindowCloseUp = "grid_CustomizationWindowCloseUp";
+
+
+        gridViewSettings.EnablePagingGestures = AutoBoolean.False;
+
+        gridViewSettings.ControlStyle.CssClass = "grid-view";
+        gridViewSettings.Width = Unit.Percentage(100);
+
+        gridViewSettings.Styles.Cell.Wrap = DefaultBoolean.False;
+        gridViewSettings.Styles.PagerBottomPanel.CssClass = "pager";
+        gridViewSettings.Styles.FocusedRow.CssClass = "focused";
+
+        gridViewSettings.SettingsBehavior.AllowFocusedRow = true;
+        gridViewSettings.SettingsBehavior.AllowSelectByRowClick = true;
+        gridViewSettings.SettingsBehavior.AllowEllipsisInText = true;
+        gridViewSettings.SettingsBehavior.AllowDragDrop = false;
+
+        gridViewSettings.SettingsSearchPanel.CustomEditorName = "searchButtonEdit";
+
+
+        gridViewSettings.SettingsEditing.EditFormColumnCount = 2;
+
+        gridViewSettings.SettingsSearchPanel.CustomEditorName = "searchButtonEdit";
+
+        gridViewSettings.Settings.VerticalScrollBarMode = ScrollBarMode.Hidden;
+        gridViewSettings.Settings.HorizontalScrollBarMode = ScrollBarMode.Auto;
+        gridViewSettings.Settings.ShowHeaderFilterButton = true;
+
+        gridViewSettings.SettingsPager.PageSize = 30;
+        gridViewSettings.SettingsPager.EnableAdaptivity = true;
+        gridViewSettings.SettingsPager.PageSizeItemSettings.Visible = true;
+
+        gridViewSettings.SettingsExport.EnableClientSideExportAPI = true;
+        gridViewSettings.SettingsExport.ExportSelectedRowsOnly = true;
+
+        gridViewSettings.SettingsPopup.EditForm.SettingsAdaptivity.MaxWidth = 800;
+        gridViewSettings.SettingsPopup.EditForm.SettingsAdaptivity.Mode = PopupControlAdaptivityMode.Always;
+        gridViewSettings.SettingsPopup.EditForm.SettingsAdaptivity.VerticalAlign = PopupAdaptiveVerticalAlign.WindowCenter;
+
+        gridViewSettings.EditFormLayoutProperties.SettingsAdaptivity.AdaptivityMode = FormLayoutAdaptivityMode.SingleColumnWindowLimit;
+        gridViewSettings.EditFormLayoutProperties.SettingsAdaptivity.SwitchToSingleColumnAtWindowInnerWidth = 600;
+        gridViewSettings.EditFormLayoutProperties.ColCount = 2;
+
+        //gridViewSettings.EditFormLayoutProperties.Items.Add("id_articulo");
+        gridViewSettings.EditFormLayoutProperties.Items.Add("anio");
+
+        gridViewSettings.EditFormLayoutProperties.Items.Add("Enero");
+        gridViewSettings.EditFormLayoutProperties.Items.Add("Febrero");
+        gridViewSettings.EditFormLayoutProperties.Items.Add("Marzo");
+        gridViewSettings.EditFormLayoutProperties.Items.Add("Abril");
+        gridViewSettings.EditFormLayoutProperties.Items.Add("Mayo");
+        gridViewSettings.EditFormLayoutProperties.Items.Add("Junio");
+        gridViewSettings.EditFormLayoutProperties.Items.Add("Julio");
+        gridViewSettings.EditFormLayoutProperties.Items.Add("Agosto");
+        gridViewSettings.EditFormLayoutProperties.Items.Add("Septiembre");
+        gridViewSettings.EditFormLayoutProperties.Items.Add("Octubre");
+        gridViewSettings.EditFormLayoutProperties.Items.Add("Noviembre");
+        gridViewSettings.EditFormLayoutProperties.Items.Add("Diciembre");
+        @*,[Enero_Base]
+        ,[Febrero_Base]
+        ,[Marzo_Base]
+        ,[Abril_Base]
+        ,[Mayo_Base]
+        ,[Junio_Base]
+        ,[Julio_Base]
+        ,[Agosto_Base]
+        ,[Septiembre_Base]
+        ,[Octubre_Base]
+        ,[Noviembre_Base]
+        ,[Diciembre_Base]*@
+        
+        gridViewSettings.EditFormLayoutProperties.Items.AddCommandItem(itemSettings =>
+        {
+            itemSettings.ColumnSpan = 2;
+            itemSettings.HorizontalAlign = FormLayoutHorizontalAlign.Right;
+        });
+
+        gridViewSettings.CommandColumn.Visible = true;
+        gridViewSettings.CommandColumn.ShowSelectCheckbox = true;
+        gridViewSettings.CommandColumn.SelectAllCheckboxMode = GridViewSelectAllCheckBoxMode.AllPages;
+        gridViewSettings.CommandColumn.VisibleIndex = 0;
+        gridViewSettings.CommandColumn.Width = Unit.Pixel(52);
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "id_articulo";
+            columnSettings.Caption = "ID";
+            columnSettings.Width = Unit.Pixel(80);
+            columnSettings.SetDataItemTemplateContent(c =>
+            {
+                if (Convert.ToInt32(DataBinder.Eval(c.DataItem, "id_articulo")) != 0)
+                    ViewContext.Writer.Write(string.Format("<span class='votes-column'>{0}</span>", DataBinder.Eval(c.DataItem, "id_articulo")));
+            });
+        });
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Description";
+            columnSettings.Caption = "Producto";
+            columnSettings.Width = Unit.Pixel(180);
+            
+        });
+
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "id_escenario";
+            columnSettings.Caption = "id_escenario";
+            columnSettings.Width = Unit.Pixel(80);
+            columnSettings.Visible = false;
+            columnSettings.SetDataItemTemplateContent(c =>
+            {
+                if (Convert.ToInt32(DataBinder.Eval(c.DataItem, "id_escenario")) != 0)
+                    ViewContext.Writer.Write(string.Format("<span class='votes-column'>{0}</span>", DataBinder.Eval(c.DataItem, "id_escenario")));
+            });
+        });
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "anio";
+            columnSettings.Caption = "Año";
+            columnSettings.Width = Unit.Pixel(80);
+            columnSettings.Visible = true;
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+            columnSettings.EditFormSettings.Visible = DefaultBoolean.True;
+
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            if (comboBoxProperties != null)
+            {
+                comboBoxProperties.ValueField = "año";
+                comboBoxProperties.TextField = "año";
+                //comboBoxProperties.ImageUrlField = "PhotoUrl";
+                comboBoxProperties.ValueType = typeof(long);
+                comboBoxProperties.ItemImage.Width = Unit.Pixel(32);
+                comboBoxProperties.ItemImage.Height = Unit.Pixel(32);
+                comboBoxProperties.DataSource = DemandaHelper.GetEscAños();
+            }
+        });
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Enero";
+            columnSettings.Caption = "Enero";
+            columnSettings.Visible = true;
+            columnSettings.EditFormSettings.Visible = DefaultBoolean.True;
+            columnSettings.PropertiesEdit.DisplayFormatString = "n";
+            columnSettings.EditFormSettings.Visible = DefaultBoolean.True;
+        });
+
+        gridViewSettings.FormatConditions.AddHighlight("Enero", "Enero < Enero_Base", GridConditionHighlightFormat.RedText);
+        gridViewSettings.FormatConditions.AddHighlight("Enero", "Enero > Enero_Base", GridConditionHighlightFormat.GreenText);
+        gridViewSettings.FormatConditions.AddHighlight("Enero", "Enero = Enero_Base", GridConditionHighlightFormat.BoldText);
+
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Enero_Base";
+            columnSettings.Caption = "Enero base";
+            columnSettings.PropertiesEdit.DisplayFormatString = "n";
+            columnSettings.Visible = false;
+            columnSettings.EditFormSettings.Visible = DefaultBoolean.False;
+            columnSettings.ShowInCustomizationForm = true;
+
+        });
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Febrero";
+            columnSettings.Caption = "Febrero";
+            columnSettings.Visible = true;
+            columnSettings.EditFormSettings.Visible = DefaultBoolean.True;
+            columnSettings.PropertiesEdit.DisplayFormatString = "n";
+        });
+
+        gridViewSettings.FormatConditions.AddHighlight("Febrero", "Febrero < Febrero_Base", GridConditionHighlightFormat.RedText);
+        gridViewSettings.FormatConditions.AddHighlight("Febrero", "Febrero > Febrero_Base", GridConditionHighlightFormat.GreenText);
+        gridViewSettings.FormatConditions.AddHighlight("Febrero", "Febrero = Febrero_Base", GridConditionHighlightFormat.BoldText);
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.Name= "Febrero_Base";
+            columnSettings.FieldName = "Febrero_Base";
+            columnSettings.Caption = "Febrero base";
+            columnSettings.Visible = false;
+            columnSettings.EditFormSettings.Visible = DefaultBoolean.False;
+            columnSettings.PropertiesEdit.DisplayFormatString = "n";
+        });
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Marzo";
+            columnSettings.Caption = "Marzo";
+            columnSettings.Visible = true;
+            columnSettings.EditFormSettings.Visible = DefaultBoolean.True;
+            columnSettings.PropertiesEdit.DisplayFormatString = "n";
+        });
+
+        gridViewSettings.FormatConditions.AddHighlight("Marzo", "Marzo < Marzo_Base", GridConditionHighlightFormat.RedText);
+        gridViewSettings.FormatConditions.AddHighlight("Marzo", "Marzo > Marzo_Base", GridConditionHighlightFormat.GreenText);
+        gridViewSettings.FormatConditions.AddHighlight("Marzo", "Marzo = Marzo_Base", GridConditionHighlightFormat.BoldText);
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Marzo_Base";
+            columnSettings.Caption = "Marzo base";
+            columnSettings.Visible = false;
+            columnSettings.EditFormSettings.Visible = DefaultBoolean.False;
+            columnSettings.PropertiesEdit.DisplayFormatString = "n";
+        });
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Abril";
+            columnSettings.Caption = "Abril";
+            columnSettings.Visible = true;
+            columnSettings.EditFormSettings.Visible = DefaultBoolean.True;
+            columnSettings.PropertiesEdit.DisplayFormatString = "n";
+        });
+
+        gridViewSettings.FormatConditions.AddHighlight("Abril", "Abril < Abril_Base", GridConditionHighlightFormat.RedText);
+        gridViewSettings.FormatConditions.AddHighlight("Abril", "Abril > Abril_Base", GridConditionHighlightFormat.GreenText);
+        gridViewSettings.FormatConditions.AddHighlight("Abril", "Abril = Abril_Base", GridConditionHighlightFormat.BoldText);
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Abril_Base";
+            columnSettings.Caption = "Abril base";
+            columnSettings.Visible = false;
+            columnSettings.EditFormSettings.Visible = DefaultBoolean.False;
+            columnSettings.PropertiesEdit.DisplayFormatString = "n";
+        });
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Mayo";
+            columnSettings.Caption = "Mayo";
+            columnSettings.Visible = true;
+            columnSettings.EditFormSettings.Visible = DefaultBoolean.True;
+            columnSettings.PropertiesEdit.DisplayFormatString = "n";
+        });
+
+        gridViewSettings.FormatConditions.AddHighlight("Mayo", "Mayo < Mayo_Base", GridConditionHighlightFormat.RedText);
+        gridViewSettings.FormatConditions.AddHighlight("Mayo", "Mayo > Mayo_Base", GridConditionHighlightFormat.GreenText);
+        gridViewSettings.FormatConditions.AddHighlight("Mayo", "Mayo = Mayo_Base", GridConditionHighlightFormat.BoldText);
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Mayo_Base";
+            columnSettings.Caption = "Mayo base";
+            columnSettings.Visible = false;
+            columnSettings.EditFormSettings.Visible = DefaultBoolean.False;
+            columnSettings.PropertiesEdit.DisplayFormatString = "n";
+        });
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Junio";
+            columnSettings.Caption = "Junio";
+            columnSettings.Visible = true;
+            columnSettings.EditFormSettings.Visible = DefaultBoolean.True;
+            columnSettings.PropertiesEdit.DisplayFormatString = "n";
+        });
+
+        gridViewSettings.FormatConditions.AddHighlight("Junio", "Junio < Junio_Base", GridConditionHighlightFormat.RedText);
+        gridViewSettings.FormatConditions.AddHighlight("Junio", "Junio > Junio_Base", GridConditionHighlightFormat.GreenText);
+        gridViewSettings.FormatConditions.AddHighlight("Junio", "Junio = Junio_Base", GridConditionHighlightFormat.BoldText);
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Junio_Base";
+            columnSettings.Caption = "Junio base";
+            columnSettings.Visible = false;
+            columnSettings.EditFormSettings.Visible = DefaultBoolean.False;
+            columnSettings.PropertiesEdit.DisplayFormatString = "n";
+        });
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Julio";
+            columnSettings.Caption = "Julio";
+            columnSettings.Visible = true;
+            columnSettings.EditFormSettings.Visible = DefaultBoolean.True;
+            columnSettings.PropertiesEdit.DisplayFormatString = "n";
+        });
+
+        gridViewSettings.FormatConditions.AddHighlight("Julio", "Julio < Julio_Base", GridConditionHighlightFormat.RedText);
+        gridViewSettings.FormatConditions.AddHighlight("Julio", "Julio > Julio_Base", GridConditionHighlightFormat.GreenText);
+        gridViewSettings.FormatConditions.AddHighlight("Julio", "Julio = Julio_Base", GridConditionHighlightFormat.BoldText);
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Julio_Base";
+            columnSettings.Caption = "Julio base";
+            columnSettings.Visible = false;
+            columnSettings.EditFormSettings.Visible = DefaultBoolean.False;
+            columnSettings.PropertiesEdit.DisplayFormatString = "n";
+        });
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Agosto";
+            columnSettings.Caption = "Agosto";
+            columnSettings.Visible = true;
+            columnSettings.EditFormSettings.Visible = DefaultBoolean.True;
+            columnSettings.PropertiesEdit.DisplayFormatString = "n";
+        });
+
+        gridViewSettings.FormatConditions.AddHighlight("Agosto", "Agosto < Agosto_Base", GridConditionHighlightFormat.RedText);
+        gridViewSettings.FormatConditions.AddHighlight("Agosto", "Agosto > Agosto_Base", GridConditionHighlightFormat.GreenText);
+        gridViewSettings.FormatConditions.AddHighlight("Agosto", "Agosto = Agosto_Base", GridConditionHighlightFormat.BoldText);
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Agosto_Base";
+            columnSettings.Caption = "Agosto base";
+            columnSettings.Visible = false;
+            columnSettings.EditFormSettings.Visible = DefaultBoolean.False;
+            columnSettings.PropertiesEdit.DisplayFormatString = "n";
+        });
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Septiembre";
+            columnSettings.Caption = "Septiembre";
+            columnSettings.Visible = true;
+            columnSettings.EditFormSettings.Visible = DefaultBoolean.True;
+            columnSettings.PropertiesEdit.DisplayFormatString = "n";
+        });
+
+        gridViewSettings.FormatConditions.AddHighlight("Septiembre", "Septiembre < Septiembre_Base", GridConditionHighlightFormat.RedText);
+        gridViewSettings.FormatConditions.AddHighlight("Septiembre", "Septiembre > Septiembre_Base", GridConditionHighlightFormat.GreenText);
+        gridViewSettings.FormatConditions.AddHighlight("Septiembre", "Septiembre = Septiembre_Base", GridConditionHighlightFormat.BoldText);
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Septiembre_Base";
+            columnSettings.Caption = "Septiembre base";
+            columnSettings.Visible = false;
+            columnSettings.EditFormSettings.Visible = DefaultBoolean.False;
+            columnSettings.PropertiesEdit.DisplayFormatString = "n";
+        });
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Octubre";
+            columnSettings.Caption = "Octubre";
+            columnSettings.Visible = true;
+            columnSettings.EditFormSettings.Visible = DefaultBoolean.True;
+            columnSettings.PropertiesEdit.DisplayFormatString = "n";
+        });
+
+        gridViewSettings.FormatConditions.AddHighlight("Octubre", "Octubre < Octubre_Base", GridConditionHighlightFormat.RedText);
+        gridViewSettings.FormatConditions.AddHighlight("Octubre", "Octubre > Octubre_Base", GridConditionHighlightFormat.GreenText);
+        gridViewSettings.FormatConditions.AddHighlight("Octubre", "Octubre = Octubre_Base", GridConditionHighlightFormat.BoldText);
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Octubre_Base";
+            columnSettings.Caption = "Octubre base";
+            columnSettings.Visible = false;
+            columnSettings.EditFormSettings.Visible = DefaultBoolean.False;
+            columnSettings.PropertiesEdit.DisplayFormatString = "n";
+        });
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Noviembre";
+            columnSettings.Caption = "Noviembre";
+            columnSettings.Visible = true;
+            columnSettings.EditFormSettings.Visible = DefaultBoolean.True;
+            columnSettings.PropertiesEdit.DisplayFormatString = "n";
+        });
+
+        gridViewSettings.FormatConditions.AddHighlight("Noviembre", "Noviembre < Noviembre_Base", GridConditionHighlightFormat.RedText);
+        gridViewSettings.FormatConditions.AddHighlight("Noviembre", "Noviembre > Noviembre_Base", GridConditionHighlightFormat.GreenText);
+        gridViewSettings.FormatConditions.AddHighlight("Noviembre", "Noviembre = Noviembre_Base", GridConditionHighlightFormat.BoldText);
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Noviembre_Base";
+            columnSettings.Caption = "Noviembre base";
+            columnSettings.Visible = false;
+            columnSettings.EditFormSettings.Visible = DefaultBoolean.False;
+            columnSettings.PropertiesEdit.DisplayFormatString = "n";
+        });
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Diciembre";
+            columnSettings.Caption = "Diciembre";
+            columnSettings.Visible = true;
+            columnSettings.EditFormSettings.Visible = DefaultBoolean.True;
+            columnSettings.PropertiesEdit.DisplayFormatString = "n";
+        });
+
+        gridViewSettings.FormatConditions.AddHighlight("Diciembre", "Diciembre < Diciembre_Base", GridConditionHighlightFormat.RedText);
+        gridViewSettings.FormatConditions.AddHighlight("Diciembre", "Diciembre > Diciembre_Base", GridConditionHighlightFormat.GreenText);
+        gridViewSettings.FormatConditions.AddHighlight("Diciembre", "Diciembre = Diciembre_Base", GridConditionHighlightFormat.BoldText);
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Diciembre_Base";
+            columnSettings.Caption = "Diciembre base";
+            columnSettings.Visible = false;
+            columnSettings.EditFormSettings.Visible = DefaultBoolean.False;
+            columnSettings.PropertiesEdit.DisplayFormatString = "n";
+        });
+
+        gridViewSettings.ClientSideEvents.Init = "onGridViewInit";
+        gridViewSettings.ClientSideEvents.SelectionChanged = "onGridViewSelectionChanged";
+        gridViewSettings.ClientSideEvents.BeginCallback = "onGridViewBeginCallback";
+
+        gridViewSettings.InitNewRow += (s, e) => { e.NewValues["id_escenario"] = -1; };
+        gridViewSettings.CellEditorInitialize = (s, e) => { ((ASPxEdit) e.Editor).ValidationSettings.Display = Display.Dynamic; };
+    });
+    if (ViewBag.GeneralError != null)
+    {
+        gridView.SetEditErrorText(ViewBag.GeneralError);
+    }
+}
+
+@gridView.Bind(Model).GetHtml()

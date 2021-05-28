@@ -1,0 +1,121 @@
+@using System.Web.UI.WebControls
+@using DevExpress.DataAccess.Native.Data
+@using mcg_load.Code
+@using Microsoft.AspNet.Identity
+@model List<mcg_load.Models.RegisterViewModel>
+
+@{
+    var gridView = Html.DevExpress().GridView(gridViewSettings =>
+    {
+        gridViewSettings.Name = "gridView";
+        gridViewSettings.KeyFieldName = "Id";
+
+        gridViewSettings.CallbackRouteValues = new
+        {
+            Controller = "Usuario",
+            Action = "UsuarioPartial"
+        };
+        gridViewSettings.CustomActionRouteValues = new {Controller = "Usuario", Action = "UsuarioCustomActionPartial" };
+        gridViewSettings.SettingsEditing.AddNewRowRouteValues = new {Controller = "Usuario", Action = "UsuarioAddNewPartial" };
+        gridViewSettings.SettingsEditing.UpdateRowRouteValues = new {Controller = "Usuario", Action = "UsuarioUpdatePartial" };
+
+        gridViewSettings.EnablePagingGestures = AutoBoolean.False;
+
+        gridViewSettings.ControlStyle.CssClass = "grid-view";
+        gridViewSettings.Width = Unit.Percentage(100);
+
+        gridViewSettings.Styles.Cell.Wrap = DefaultBoolean.False;
+        gridViewSettings.Styles.PagerBottomPanel.CssClass = "pager";
+        gridViewSettings.Styles.FocusedRow.CssClass = "focused";
+
+        gridViewSettings.SettingsBehavior.AllowFocusedRow = true;
+        gridViewSettings.SettingsBehavior.AllowSelectByRowClick = true;
+        gridViewSettings.SettingsBehavior.AllowEllipsisInText = true;
+        gridViewSettings.SettingsBehavior.AllowDragDrop = false;
+
+        gridViewSettings.SettingsSearchPanel.CustomEditorName = "searchButtonEdit";
+
+        gridViewSettings.SettingsEditing.Mode = GridViewEditingMode.PopupEditForm;
+        gridViewSettings.SettingsEditing.EditFormColumnCount = 2;
+
+        gridViewSettings.SettingsSearchPanel.CustomEditorName = "searchButtonEdit";
+
+        gridViewSettings.Settings.VerticalScrollBarMode = ScrollBarMode.Hidden;
+        gridViewSettings.Settings.HorizontalScrollBarMode = ScrollBarMode.Auto;
+        gridViewSettings.Settings.ShowHeaderFilterButton = true;
+
+        gridViewSettings.SettingsPager.PageSize = 30;
+        gridViewSettings.SettingsPager.EnableAdaptivity = true;
+        gridViewSettings.SettingsPager.PageSizeItemSettings.Visible = true;
+
+        gridViewSettings.SettingsExport.EnableClientSideExportAPI = true;
+        gridViewSettings.SettingsExport.ExportSelectedRowsOnly = true;
+
+        gridViewSettings.SettingsPopup.EditForm.SettingsAdaptivity.MaxWidth = 800;
+        gridViewSettings.SettingsPopup.EditForm.SettingsAdaptivity.Mode = PopupControlAdaptivityMode.Always;
+        gridViewSettings.SettingsPopup.EditForm.SettingsAdaptivity.VerticalAlign = PopupAdaptiveVerticalAlign.WindowCenter;
+
+        gridViewSettings.EditFormLayoutProperties.SettingsAdaptivity.AdaptivityMode = FormLayoutAdaptivityMode.SingleColumnWindowLimit;
+        gridViewSettings.EditFormLayoutProperties.SettingsAdaptivity.SwitchToSingleColumnAtWindowInnerWidth = 600;
+        gridViewSettings.EditFormLayoutProperties.ColCount = 2;
+
+        gridViewSettings.EditFormLayoutProperties.Items.Add("Usuario");
+        gridViewSettings.EditFormLayoutProperties.Items.Add("Email");
+        //gridViewSettings.EditFormLayoutProperties.Items.Add("Contraseña");
+        //gridViewSettings.EditFormLayoutProperties.Items.Add("ConfirmPassword");
+        gridViewSettings.EditFormLayoutProperties.Items.Add("UserRoles");
+
+
+        gridViewSettings.EditFormLayoutProperties.Items.AddCommandItem(itemSettings =>
+        {
+            itemSettings.ColumnSpan = 2;
+            itemSettings.HorizontalAlign = FormLayoutHorizontalAlign.Right;
+        });
+
+        gridViewSettings.CommandColumn.Visible = true;
+        gridViewSettings.CommandColumn.ShowSelectCheckbox = true;
+        gridViewSettings.CommandColumn.SelectAllCheckboxMode = GridViewSelectAllCheckBoxMode.AllPages;
+        gridViewSettings.CommandColumn.VisibleIndex = 0;
+        gridViewSettings.CommandColumn.Width = Unit.Pixel(52);
+
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Id";
+            columnSettings.Caption = "Id";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+            columnSettings.SetDataItemTemplateContent(c =>
+            {
+                if (!DataBinder.Eval(c.DataItem, "Id").Equals(""))
+                    ViewContext.Writer.Write(string.Format("<span class='votes-column'>{0}</span>", DataBinder.Eval(c.DataItem, "Id")));
+            });
+        });
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Email";
+            columnSettings.Caption = "Email";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(150);
+        });
+
+
+        gridViewSettings.ClientSideEvents.Init = "onGridViewInit";
+        gridViewSettings.ClientSideEvents.SelectionChanged = "onGridViewSelectionChanged";
+        gridViewSettings.ClientSideEvents.BeginCallback = "onGridViewBeginCallback";
+
+        gridViewSettings.InitNewRow += (s, e) =>
+        {
+            e.NewValues["id_escenario"] = -1;
+            e.NewValues["UserId"] = User.Identity.GetUserId();
+        };
+        gridViewSettings.CellEditorInitialize = (s, e) => { ((ASPxEdit) e.Editor).ValidationSettings.Display = Display.Dynamic; };
+    });
+    if (ViewBag.GeneralError != null)
+    {
+        gridView.SetEditErrorText(ViewBag.GeneralError);
+    }
+}
+
+@gridView.Bind(Model).GetHtml()

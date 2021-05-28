@@ -1,0 +1,15 @@
+﻿@model mcg_load.Models.DemandaMoving
+@Html.DevExpress().CallbackPanel(settings =>
+{
+    settings.Name = "CallbackPanel";
+    settings.CallbackRouteValues = new { Controller = "Articulo", Action = "CallbackPanelPartial" };
+    settings.Width = 500;
+    settings.Height = 300;
+    settings.ClientSideEvents.BeginCallback = "function(s, e) { e.customArgs['Planta'] = Planta.GetValue(); }";
+
+    settings.SetContent(() =>
+    {
+        Html.RenderPartial("LineaPartial", Model);
+    });
+}).GetHtml()
+

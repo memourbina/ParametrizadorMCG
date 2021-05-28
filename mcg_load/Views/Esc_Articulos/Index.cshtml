@@ -1,0 +1,202 @@
+﻿@using mcg_load.Models
+@model IEnumerable<mcg_load.Esc_Articulos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Org__ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Escenario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Probabilidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Línea_Moldeo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Industria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tipo_Pieza)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.No__Oracle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer_PN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Unit_Weight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mercado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tipo_de_Hierro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Grado_de_Hierro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OEM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Plataforma)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sistema)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cavs____Soplo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Soplos___Hora)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cor___pza)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Maquina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Planta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.modificado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_modificacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AspNetUsers.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CAT_Plantas.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Esc_Escenario.UserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Esc_Lineas.Planta)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Org__ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Escenario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Probabilidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Línea_Moldeo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Industria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tipo_Pieza)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.No__Oracle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer_PN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Unit_Weight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mercado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tipo_de_Hierro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Grado_de_Hierro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OEM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Plataforma)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sistema)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cavs____Soplo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Soplos___Hora)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cor___pza)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Maquina)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Planta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.modificado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha_modificacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetUsers.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CAT_Plantas.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Esc_Escenario.UserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Esc_Lineas.Planta)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new ArticuloKey() { id_articulo= item.id_articulo, id_escenario = item.id_escenario}) |
+            @Html.ActionLink("Details", "Details", new ArticuloKey() { id_articulo = item.id_articulo, id_escenario = item.id_escenario }) |
+            @Html.ActionLink("Delete", "Delete", new ArticuloKey() { id_articulo = item.id_articulo, id_escenario = item.id_escenario })
+        </td>
+    </tr>
+}
+
+</table>

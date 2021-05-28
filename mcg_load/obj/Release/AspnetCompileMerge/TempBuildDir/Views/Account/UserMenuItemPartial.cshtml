@@ -1,0 +1,24 @@
+﻿
+@using Microsoft.AspNet.Identity
+@model mcg_load.Code.ApplicationUserView
+
+@{
+    var avatarUrl = "Content/Images/user.svg";
+}
+<div class="user-info">
+    <div class="avatar">
+        <img id="AvatarUrl" src="@Url.Content(avatarUrl)" />
+    </div>
+    <div class="text-container">
+        @Html.DevExpress().Label(labelSettings => {
+                                                      labelSettings.Name = "userNameLabel";
+                                                      labelSettings.Text = User.Identity.GetUserName();
+                                                      labelSettings.ControlStyle.CssClass = "user-name";
+        }).GetHtml()
+        @Html.DevExpress().Label(labelSettings => {
+                                                      labelSettings.Name = "emailLabel";
+                                                      labelSettings.Text = User.Identity.GetUserId();
+                                                      labelSettings.ControlStyle.CssClass = "email";
+        }).GetHtml()
+    </div>
+</div>

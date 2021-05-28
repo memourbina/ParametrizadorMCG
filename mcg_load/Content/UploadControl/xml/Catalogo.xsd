@@ -1,0 +1,39 @@
+<?xml version="1.0" standalone="yes"?>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+  <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="Catalogo" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Catalogo" msprop:visiblestate="visible">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" type="xs:double" minOccurs="0" />
+              <xs:element name="Org._x0020_ID" type="xs:double" minOccurs="0" />
+              <xs:element name="Planta" type="xs:string" minOccurs="0" />
+              <xs:element name="Escenario" type="xs:string" minOccurs="0" />
+              <xs:element name="Probabilidad" type="xs:string" minOccurs="0" />
+              <xs:element name="Línea_x0020_Moldeo" type="xs:string" minOccurs="0" />
+              <xs:element name="Cliente" type="xs:string" minOccurs="0" />
+              <xs:element name="Customer_x0020_Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Industria" type="xs:string" minOccurs="0" />
+              <xs:element name="Tipo_x0020_Pieza" type="xs:string" minOccurs="0" />
+              <xs:element name="Description" type="xs:string" minOccurs="0" />
+              <xs:element name="No._x0020_Oracle" msdata:DataType="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:anyType" minOccurs="0" />
+              <xs:element name="Customer_x0020_PN" msdata:DataType="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:anyType" minOccurs="0" />
+              <xs:element name="Unit_x0020_Weight" msdata:DataType="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:anyType" minOccurs="0" />
+              <xs:element name="Mercado" type="xs:string" minOccurs="0" />
+              <xs:element name="Tipo_x0020_de_x0020_Hierro" type="xs:string" minOccurs="0" />
+              <xs:element name="Grado_x0020_de_x0020_Hierro" msdata:DataType="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" type="xs:anyType" minOccurs="0" />
+              <xs:element name="OEM" type="xs:string" minOccurs="0" />
+              <xs:element name="Plataforma" type="xs:string" minOccurs="0" />
+              <xs:element name="Sistema" type="xs:string" minOccurs="0" />
+              <xs:element name="Cavs_x0020__x002F__x0020__x0020_Soplo" type="xs:double" minOccurs="0" />
+              <xs:element name="Soplos_x0020__x002F__x0020_Hora" type="xs:double" minOccurs="0" />
+              <xs:element name="Cor_x0020__x002F__x0020_pza" type="xs:double" minOccurs="0" />
+              <xs:element name="Maquina" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

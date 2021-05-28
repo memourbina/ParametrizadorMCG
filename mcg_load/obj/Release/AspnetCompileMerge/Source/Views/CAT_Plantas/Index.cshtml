@@ -1,0 +1,63 @@
+﻿@model IEnumerable<mcg_load.CAT_Plantas>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.org_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre_planta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Site)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Site_largo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.org_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre_planta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Site)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Site_largo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Planta }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Planta }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Planta })
+        </td>
+    </tr>
+}
+
+</table>

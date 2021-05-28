@@ -1,0 +1,54 @@
+﻿@*@model mcg_load.Models.upload.UploadExcelViewModel*@
+@using System.Data;
+@model mcg_load.Models.FileUpload.FileUploadResult
+@{
+    ViewBag.Title = "Index";
+    ViewBag.TitleHome = "Inicio";
+    ViewBag.DescriptionTitle01 = "Creación de Usuarios.";
+}
+
+<div class="text-content">
+
+    <h1 class="title" id="SubjectText">Resultado de Archivo de Carga</h1>
+
+    @if (Model != null)
+    {
+        if (Model.isValid)
+        {
+            <h4>Archivo cargado exitosamente!!!</h4>
+        }
+        else
+        {
+            <h4>Error en la carga del archivo!!!</h4>
+        }
+        <p>@Model.MessageResult</p>
+
+        if (Model.FileUploadErrors != null)
+        {
+            <table class="table">
+                <tr>
+                    <th>
+                        Tabla
+                    </th>
+                    <th>
+                        Error
+                    </th>
+                </tr>
+
+                @foreach (var item in Model.FileUploadErrors)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nombre_Hoja)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Message)
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        }
+    }
+
+</div>

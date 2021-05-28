@@ -1,0 +1,770 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{99794205-3000-46EB-8998-CBFC2DFCD9EC}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>mcg_load</RootNamespace>
+    <AssemblyName>mcg_load</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44354</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v20.1.Core, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v20.1.Core, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v20.1.Export, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Web.ASPxThemes.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Web.Mvc5.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Web.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v20.1.Core, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\ExcelDataReader.3.6.0\lib\net45\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader.DataSet, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>packages\ExcelDataReader.DataSet.3.6.0\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>packages\Microsoft.AspNet.Identity.Owin.2.2.3\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>packages\Microsoft.Owin.4.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>packages\Microsoft.Owin.Host.SystemWeb.4.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>packages\Microsoft.Owin.Security.4.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>packages\Microsoft.Owin.Security.Facebook.4.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>packages\Microsoft.Owin.Security.Cookies.4.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>packages\Microsoft.Owin.Security.Google.4.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>packages\Microsoft.Owin.Security.Twitter.4.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>packages\Microsoft.Owin.Security.MicrosoftAccount.4.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>packages\Microsoft.Owin.Security.OAuth.4.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="AspNetRoles.cs">
+      <DependentUpon>mcg_saturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserClaims.cs">
+      <DependentUpon>mcg_saturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserLogins.cs">
+      <DependentUpon>mcg_saturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUsers.cs">
+      <DependentUpon>mcg_saturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cat_Bitacora.cs">
+      <DependentUpon>mcg_saturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CAT_Plantas.cs">
+      <DependentUpon>mcg_saturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Code\AuthHelper.cs" />
+    <Compile Include="Code\DBContext.cs" />
+    <Compile Include="Code\FileUploadHelper.cs" />
+    <Compile Include="Code\GridViewHelper.cs" />
+    <Compile Include="Code\Helpers\AllowExtensionsAttribute.cs" />
+    <Compile Include="Code\Helpers\ArticuloHelper.cs" />
+    <Compile Include="Code\Helpers\CavidadesHelper.cs" />
+    <Compile Include="Code\Helpers\DemandaHelper.cs" />
+    <Compile Include="Code\Helpers\EscenariosHelper.cs" />
+    <Compile Include="Code\Helpers\HorasCorazonHelper.cs" />
+    <Compile Include="Code\Helpers\HorasHelper.cs" />
+    <Compile Include="Code\Helpers\LineasHelper.cs" />
+    <Compile Include="Code\Helpers\OEECorazonHelper.cs" />
+    <Compile Include="Code\Helpers\OEEDesgloseHelper.cs" />
+    <Compile Include="Code\Helpers\OEEHelper.cs" />
+    <Compile Include="Code\Helpers\ParametrosHelper.cs" />
+    <Compile Include="Code\Helpers\RechazoHelper.cs" />
+    <Compile Include="Code\Helpers\UploadControlHelper.cs" />
+    <Compile Include="Code\Helpers\UsersHelper.cs" />
+    <Compile Include="Code\Helpers\UsuarioHelper.cs" />
+    <Compile Include="Code\Helpers\VelocidadHelper.cs" />
+    <Compile Include="Code\SaturacionHelper.cs" />
+    <Compile Include="Code\Utils.cs" />
+    <Compile Include="Code\ValidateExcel.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ArticuloController.cs" />
+    <Compile Include="Controllers\ArticuloCopyController.cs" />
+    <Compile Include="Controllers\ArticuloMoveController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CAT_PlantasController.cs" />
+    <Compile Include="Controllers\CavidadesController.cs" />
+    <Compile Include="Controllers\DemandaController.cs" />
+    <Compile Include="Controllers\DemandaMovingController.cs" />
+    <Compile Include="Controllers\EscenariosController.cs" />
+    <Compile Include="Controllers\Esc_ArticulosController.cs" />
+    <Compile Include="Controllers\FileUploadController.cs" />
+    <Compile Include="Controllers\GridViewController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HorasController.cs" />
+    <Compile Include="Controllers\HorasCorazonController.cs" />
+    <Compile Include="Controllers\LineasController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OEEController.cs" />
+    <Compile Include="Controllers\OEECorazonController.cs" />
+    <Compile Include="Controllers\OEEDesgloseController.cs" />
+    <Compile Include="Controllers\ParametrosController.cs" />
+    <Compile Include="Controllers\RechazosController.cs" />
+    <Compile Include="Controllers\SaturacionController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="Controllers\VelocidadController.cs" />
+    <Compile Include="Controllers\vw_demandaController.cs" />
+    <Compile Include="Esc_Actualizacion.cs">
+      <DependentUpon>mcg_saturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Esc_Articulos.cs">
+      <DependentUpon>mcg_saturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Esc_Año.cs">
+      <DependentUpon>mcg_saturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Esc_Calendario.cs">
+      <DependentUpon>mcg_saturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Esc_Cavidades.cs">
+      <DependentUpon>mcg_saturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Esc_Demanda.cs">
+      <DependentUpon>mcg_saturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Esc_Demanda_staging.cs">
+      <DependentUpon>mcg_saturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Esc_Escenario.cs">
+      <DependentUpon>mcg_saturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Esc_File_Upload.cs">
+      <DependentUpon>mcg_saturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Esc_Horas.cs">
+      <DependentUpon>mcg_saturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Esc_HorasCorazones.cs">
+      <DependentUpon>mcg_saturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Esc_HorasCorazones_staging.cs">
+      <DependentUpon>mcg_saturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Esc_Horas_staging.cs">
+      <DependentUpon>mcg_saturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Esc_Lineas.cs">
+      <DependentUpon>mcg_saturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Esc_Lineas_staging.cs">
+      <DependentUpon>mcg_saturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Esc_Maquina.cs">
+      <DependentUpon>mcg_saturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Esc_OEE.cs">
+      <DependentUpon>mcg_saturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Esc_OEECorazones.cs">
+      <DependentUpon>mcg_saturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Esc_OEEDesglose.cs">
+      <DependentUpon>mcg_saturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Esc_OEE_staging.cs">
+      <DependentUpon>mcg_saturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Esc_Parametros.cs">
+      <DependentUpon>mcg_saturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Esc_Rechazo.cs">
+      <DependentUpon>mcg_saturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Esc_Tipo_Escenarios.cs">
+      <DependentUpon>mcg_saturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Esc_Tipo_linea.cs">
+      <DependentUpon>mcg_saturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Esc_Velocidad.cs">
+      <DependentUpon>mcg_saturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="mcg_saturacion.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>mcg_saturacion.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mcg_saturacion.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>mcg_saturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mcg_saturacion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>mcg_saturacion.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ArticuloKey.cs" />
+    <Compile Include="Models\CArticuloMov.cs" />
+    <Compile Include="Models\DemandaMoving.cs" />
+    <Compile Include="Models\FileUpload\FileUploadError.cs" />
+    <Compile Include="Models\FileUpload\FileUploadResult.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ImageSliderSlideShowDemoOptions.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\TipoMovimiento.cs" />
+    <Compile Include="Models\upload\UploadExcelViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="vw_demanda.cs">
+      <DependentUpon>mcg_saturacion.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_demanda01.cs">
+      <DependentUpon>mcg_saturacion.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\ArticuloCopy\ArticuloCopy.css" />
+    <Content Include="Content\ArticuloCopy\ArticuloCopy.js" />
+    <Content Include="Content\Articulos\Articulos.css" />
+    <Content Include="Content\Articulos\Articulos.js" />
+    <Content Include="Content\Cavidades\Cavidades.css" />
+    <Content Include="Content\Cavidades\Cavidades.js" />
+    <Content Include="Content\Content.css" />
+    <Content Include="Content\Demanda\Demanda.css" />
+    <Content Include="Content\Demanda\Demanda.js" />
+    <Content Include="Content\Escenarios\Escenarios.css" />
+    <Content Include="Content\Escenarios\Escenarios.js" />
+    <Content Include="Content\FileUpload\FileUpload.css" />
+    <Content Include="Content\FileUpload\FileUpload.js" />
+    <Content Include="Content\general.css" />
+    <Content Include="Content\HorasCorazon\HorasCorazon.css" />
+    <Content Include="Content\HorasCorazon\HorasCorazon.js" />
+    <Content Include="Content\Horas\Horas.css" />
+    <Content Include="Content\Horas\Horas.js" />
+    <Content Include="Content\Images\Action_Copy_CellValue.svg" />
+    <Content Include="Content\Images\Carga Archivos.svg" />
+    <Content Include="Content\Images\Draxton_logo.png" />
+    <Content Include="Content\Images\Escenario-white.svg" />
+    <Content Include="Content\Images\Escenarios-white.svg" />
+    <Content Include="Content\Images\Escenarios.svg" />
+    <Content Include="Content\Images\Escenarios_Base.svg" />
+    <Content Include="Content\Images\GIS-small.svg" />
+    <Content Include="Content\Images\GIS.png" />
+    <Content Include="Content\Images\gislogo1.png" />
+    <Content Include="Content\Images\GIS_small.png" />
+    <Content Include="Content\Images\HybridDemo_Settings.svg" />
+    <Content Include="Content\Images\Velocidad-white.svg" />
+    <Content Include="Content\Images\Velocidad.svg" />
+    <Content Include="Content\Lineas\Lineas.css" />
+    <Content Include="Content\Lineas\Lineas.js" />
+    <Content Include="Content\Moving\Moving.css" />
+    <Content Include="Content\Moving\Moving.js" />
+    <Content Include="Content\OEECorazon\OEECorazon.css" />
+    <Content Include="Content\OEECorazon\OEECorazon.js" />
+    <Content Include="Content\OEEDesglose\OEEDesglose.css" />
+    <Content Include="Content\OEEDesglose\OEEDesglose.js" />
+    <Content Include="Content\OEE\OEE.css" />
+    <Content Include="Content\OEE\OEE.js" />
+    <Content Include="Content\Parametros\Parametros.css" />
+    <Content Include="Content\Parametros\Parametros.js" />
+    <Content Include="Content\Rechazos\Rechazos.css" />
+    <Content Include="Content\Rechazos\Rechazos.js" />
+    <Content Include="Content\Saturacion.js" />
+    <Content Include="Content\Saturacion.css" />
+    <Content Include="Content\GridView.css" />
+    <Content Include="Content\GridView.js" />
+    <Content Include="Content\Images\adaptive-menu.svg" />
+    <Content Include="Content\Images\add.svg" />
+    <Content Include="Content\Images\application.svg" />
+    <Content Include="Content\Images\Article-white.svg" />
+    <Content Include="Content\Images\Article.svg" />
+    <Content Include="Content\Images\back.svg" />
+    <Content Include="Content\Images\delete.svg" />
+    <Content Include="Content\Images\double-close.svg" />
+    <Content Include="Content\Images\double.svg" />
+    <Content Include="Content\Images\edit.svg" />
+    <Content Include="Content\Images\export.svg" />
+    <Content Include="Content\Images\eye-button-hide.svg" />
+    <Content Include="Content\Images\eye-button.svg" />
+    <Content Include="Content\Images\GIS.svg" />
+    <Content Include="Content\Images\GridView-white.svg" />
+    <Content Include="Content\Images\GridView.svg" />
+    <Content Include="Content\Images\Home-white.svg" />
+    <Content Include="Content\Images\Home.svg" />
+    <Content Include="Content\Images\image-sample.png" />
+    <Content Include="Content\Images\kind1-white.svg" />
+    <Content Include="Content\Images\kind1.svg" />
+    <Content Include="Content\Images\kind2-white.svg" />
+    <Content Include="Content\Images\kind2.svg" />
+    <Content Include="Content\Images\logo-small.svg" />
+    <Content Include="Content\Images\logo.svg" />
+    <Content Include="Content\Images\menu.svg" />
+    <Content Include="Content\Images\Overview\article.png" />
+    <Content Include="Content\Images\Overview\demo.png" />
+    <Content Include="Content\Images\Overview\grid.png" />
+    <Content Include="Content\Images\Overview\login.gif" />
+    <Content Include="Content\Images\Overview\login.png" />
+    <Content Include="Content\Images\Overview\menu.gif" />
+    <Content Include="Content\Images\Overview\scheduler.png" />
+    <Content Include="Content\Images\Overview\sidebar.gif" />
+    <Content Include="Content\Images\Overview\sticky-footer.gif" />
+    <Content Include="Content\Images\Overview\toolbar.gif" />
+    <Content Include="Content\Images\print.svg" />
+    <Content Include="Content\Images\priority1-white.svg" />
+    <Content Include="Content\Images\priority1.svg" />
+    <Content Include="Content\Images\priority2-white.svg" />
+    <Content Include="Content\Images\priority2.svg" />
+    <Content Include="Content\Images\priority3-white.svg" />
+    <Content Include="Content\Images\priority3.svg" />
+    <Content Include="Content\Images\Scheduler-white.svg" />
+    <Content Include="Content\Images\Scheduler.svg" />
+    <Content Include="Content\Images\search-selected.svg" />
+    <Content Include="Content\Images\search.svg" />
+    <Content Include="Content\Images\sign-out.svg" />
+    <Content Include="Content\Images\user.svg" />
+    <Content Include="Content\Layout.css" />
+    <Content Include="Content\Photo\Alberto_Alonso.jpg" />
+    <Content Include="Content\Photo\Alfredo_Gomez.jpg" />
+    <Content Include="Content\Photo\Andrew_Lee.jpg" />
+    <Content Include="Content\Photo\Angela_Murphy.jpg" />
+    <Content Include="Content\Photo\Clarence_Nath.jpg" />
+    <Content Include="Content\Photo\Colin_He.jpg" />
+    <Content Include="Content\Photo\Connor_Jenkins.jpg" />
+    <Content Include="Content\Photo\Connor_Lopez.jpg" />
+    <Content Include="Content\Photo\Destiny_Clark.jpg" />
+    <Content Include="Content\Photo\Diana_Martin.jpg" />
+    <Content Include="Content\Photo\Gary_Rubio.jpg" />
+    <Content Include="Content\Photo\Heidi_Lopez.jpg" />
+    <Content Include="Content\Photo\Jesse_Gonzalez.jpg" />
+    <Content Include="Content\Photo\Jessie_She.jpg" />
+    <Content Include="Content\Photo\Julia_Bell.jpg" />
+    <Content Include="Content\Photo\Julia_Evans.jpg" />
+    <Content Include="Content\Photo\Katelyn_Lopez.jpg" />
+    <Content Include="Content\Photo\Kevin_Collins.jpg" />
+    <Content Include="Content\Photo\Logan_Hernandez.jpg" />
+    <Content Include="Content\Photo\Maria_Hernandez.jpg" />
+    <Content Include="Content\Photo\Martha_Gao.jpg" />
+    <Content Include="Content\Photo\Megan_Sanchez.jpg" />
+    <Content Include="Content\Photo\Miguel_Jones.jpg" />
+    <Content Include="Content\Photo\Naomi_Moreno.jpg" />
+    <Content Include="Content\Photo\Nathan_Bryant.jpg" />
+    <Content Include="Content\Photo\Rafael_Raje.jpg" />
+    <Content Include="Content\Photo\Rebekah_Raman.jpg" />
+    <Content Include="Content\Photo\Shannon_Sanz.jpg" />
+    <Content Include="Content\Photo\User.png" />
+    <Content Include="Content\Photo\Xavier_Richardson.jpg" />
+    <Content Include="Content\Scheduler.css" />
+    <Content Include="Content\Scheduler.js" />
+    <Content Include="Content\Script.js" />
+    <Content Include="Content\SignInRegister.css" />
+    <Content Include="Content\SignInRegister.js" />
+    <Content Include="Content\Usuario\Usuario.css" />
+    <Content Include="Content\Usuario\Usuario.js" />
+    <Content Include="Content\Velocidad\Velocidad.css" />
+    <Content Include="Content\Velocidad\Velocidad.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="mcg_saturacion.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>mcg_saturacion.edmx</DependentUpon>
+      <LastGenOutput>mcg_saturacion.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="mcg_saturacion.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>mcg_saturacion.edmx</DependentUpon>
+      <LastGenOutput>mcg_saturacion.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="App_Data\ApplicationMenuDataSource.sitemap" />
+    <EntityDeploy Include="mcg_saturacion.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>mcg_saturacion.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="mcg_saturacion.edmx.diagram">
+      <DependentUpon>mcg_saturacion.edmx</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
+    <Content Include="Views\Account\UserMenuItemPartial.cshtml" />
+    <Content Include="Views\Account\SignIn.cshtml" />
+    <Content Include="Views\vw_demanda\Create.cshtml" />
+    <Content Include="Views\vw_demanda\Delete.cshtml" />
+    <Content Include="Views\vw_demanda\Details.cshtml" />
+    <Content Include="Views\vw_demanda\Edit.cshtml" />
+    <Content Include="Views\vw_demanda\Index.cshtml" />
+    <Content Include="Views\vw_demanda\LeftPanelVwDemandaPartial.cshtml" />
+    <Content Include="Views\vw_demanda\GridViewPartial.cshtml" />
+    <Content Include="Views\vw_demanda\GridViewDetailsPage.cshtml" />
+    <Content Include="Views\GridView\GridViewDetailsPage.cshtml" />
+    <Content Include="Views\GridView\GridViewPartial.cshtml" />
+    <Content Include="Views\GridView\Index.cshtml" />
+    <Content Include="Views\GridView\LeftPanelPartial.cshtml" />
+    <Content Include="Views\Saturacion\SaturacionDetailsPage.cshtml" />
+    <Content Include="Views\Saturacion\SaturacionPartial.cshtml" />
+    <Content Include="Views\Saturacion\Index.cshtml" />
+    <Content Include="Views\Saturacion\LeftPanelPartial.cshtml" />
+    <Content Include="Views\FileUpload\Index.cshtml" />
+    <Content Include="Views\FileUpload\LeftPanelPartial.cshtml" />
+    <Content Include="Views\FileUpload\FileUploadDetailsPage.cshtml" />
+    <Content Include="Views\FileUpload\FileUploadPartial.cshtml" />
+    <Content Include="Views\FileUpload\FileUploadEditingForm.cshtml" />
+    <Content Include="Views\FileUpload\FileUploadNewForm.cshtml" />
+    <Content Include="Views\FileUpload\FileUploadNewResultForm.cshtml" />
+    <Content Include="Views\Escenarios\EscenariosPartial.cshtml" />
+    <Content Include="Views\Escenarios\EscenariosDetailsPage.cshtml" />
+    <Content Include="Views\Escenarios\LeftPanelPartial.cshtml" />
+    <Content Include="Views\Escenarios\Index.cshtml" />
+    <Content Include="Views\CAT_Plantas\Create.cshtml" />
+    <Content Include="Views\CAT_Plantas\Delete.cshtml" />
+    <Content Include="Views\CAT_Plantas\Details.cshtml" />
+    <Content Include="Views\CAT_Plantas\Edit.cshtml" />
+    <Content Include="Views\CAT_Plantas\Index.cshtml" />
+    <Content Include="Views\Cavidades\CavidadesDetailsPage.cshtml" />
+    <Content Include="Views\Cavidades\CavidadesPartial.cshtml" />
+    <Content Include="Views\Cavidades\Index.cshtml" />
+    <Content Include="Views\Cavidades\LeftPanelPartial.cshtml" />
+    <Content Include="Views\Rechazos\RechazosDetailsPage.cshtml" />
+    <Content Include="Views\Rechazos\RechazosPartial.cshtml" />
+    <Content Include="Views\Rechazos\Index.cshtml" />
+    <Content Include="Views\Rechazos\LeftPanelPartial.cshtml" />
+    <Content Include="Views\Velocidad\VelocidadDetailsPage.cshtml" />
+    <Content Include="Views\Velocidad\VelocidadPartial.cshtml" />
+    <Content Include="Views\Velocidad\Index.cshtml" />
+    <Content Include="Views\Velocidad\LeftPanelPartial.cshtml" />
+    <Content Include="Views\Articulo\ArticuloDetailsPage.cshtml" />
+    <Content Include="Views\Articulo\ArticuloPartial.cshtml" />
+    <Content Include="Views\Articulo\Index.cshtml" />
+    <Content Include="Views\Articulo\LeftPanelPartial.cshtml" />
+    <Content Include="Views\Demanda\LeftPanelPartial.cshtml" />
+    <Content Include="Views\Demanda\Index.cshtml" />
+    <Content Include="Views\Demanda\DemandaPartial.cshtml" />
+    <Content Include="Views\Demanda\DemandaDetailsPage.cshtml" />
+    <Content Include="Views\Horas\Index.cshtml" />
+    <Content Include="Views\Horas\LeftPanelPartial.cshtml" />
+    <Content Include="Views\Horas\HorasDetailsPage.cshtml" />
+    <Content Include="Views\Horas\HorasPartial.cshtml" />
+    <Content Include="Views\HorasCorazon\Index.cshtml" />
+    <Content Include="Views\HorasCorazon\LeftPanelPartial.cshtml" />
+    <Content Include="Views\HorasCorazon\HorasCorazonDetailsPage.cshtml" />
+    <Content Include="Views\HorasCorazon\HorasCorazonPartial.cshtml" />
+    <Content Include="Views\OEE\Index.cshtml" />
+    <Content Include="Views\OEE\LeftPanelPartial.cshtml" />
+    <Content Include="Views\OEE\OEEDetailsPage.cshtml" />
+    <Content Include="Views\OEE\OEEPartial.cshtml" />
+    <Content Include="Views\OEECorazon\Index.cshtml" />
+    <Content Include="Views\OEECorazon\LeftPanelPartial.cshtml" />
+    <Content Include="Views\OEECorazon\OEECorazonDetailsPage.cshtml" />
+    <Content Include="Views\OEECorazon\OEECorazonPartial.cshtml" />
+    <Content Include="Views\OEEDesglose\Index.cshtml" />
+    <Content Include="Views\OEEDesglose\LeftPanelPartial.cshtml" />
+    <Content Include="Views\OEEDesglose\OEEDesgloseDetailsPage.cshtml" />
+    <Content Include="Views\OEEDesglose\OEEDesglosePartial.cshtml" />
+    <Content Include="Views\Parametros\Index.cshtml" />
+    <Content Include="Views\Parametros\LeftPanelPartial.cshtml" />
+    <Content Include="Views\Parametros\ParametrosDetailsPage.cshtml" />
+    <Content Include="Views\Parametros\ParametrosPartial.cshtml" />
+    <Content Include="Views\Articulo\ArticuloCopyResultPage.cshtml" />
+    <Content Include="Views\Esc_Articulos\Create.cshtml" />
+    <Content Include="Views\Esc_Articulos\Delete.cshtml" />
+    <Content Include="Views\Esc_Articulos\Details.cshtml" />
+    <Content Include="Views\Esc_Articulos\Edit.cshtml" />
+    <Content Include="Views\Esc_Articulos\Index.cshtml" />
+    <Content Include="Views\ArticuloCopy\Index.cshtml" />
+    <Content Include="Views\ArticuloCopy\LeftPanelPartial.cshtml" />
+    <Content Include="Views\ArticuloCopy\ArticuloCopyPartial.cshtml" />
+    <Content Include="Views\ArticuloCopy\ArticuloCopyDetailsPage.cshtml" />
+    <Content Include="Views\Lineas\Index.cshtml" />
+    <Content Include="Views\Lineas\LeftPanelPartial.cshtml" />
+    <Content Include="Views\Lineas\LineasDetailsPage.cshtml" />
+    <Content Include="Views\Lineas\LineasPartial.cshtml" />
+    <Content Include="Views\Articulo\DemandaMovingPage.cshtml" />
+    <Content Include="Views\Articulo\PlantaPartial.cshtml" />
+    <Content Include="Views\Articulo\LineaPartial.cshtml" />
+    <Content Include="Views\Articulo\_CallbackPanelPartial.cshtml" />
+    <Content Include="Views\DemandaMoving\LeftPanelPartial.cshtml" />
+    <Content Include="Views\DemandaMoving\Index.cshtml" />
+    <Content Include="Views\DemandaMoving\DemandaMovePartial.cshtml" />
+    <Content Include="Views\DemandaMoving\DemandaMoveDetailsPage.cshtml" />
+    <Content Include="Views\DemandaMoving\PlantaPartial.cshtml" />
+    <Content Include="Views\DemandaMoving\LineaPartial.cshtml" />
+    <Content Include="Views\DemandaMoving\_CallbackPanelPartial.cshtml" />
+    <Content Include="Views\DemandaMoving\TipoMovimientoPartial.cshtml" />
+    <Content Include="Views\ArticuloMove\ArticuloMoveDetailsPage.cshtml" />
+    <Content Include="Views\ArticuloMove\ArticuloMovePartial.cshtml" />
+    <Content Include="Views\ArticuloMove\Index.cshtml" />
+    <Content Include="Views\ArticuloMove\LeftPanelPartial.cshtml" />
+    <Content Include="Views\Usuario\UsuarioDetailsPage.cshtml" />
+    <Content Include="Views\Usuario\UsuarioPartial.cshtml" />
+    <Content Include="Views\Usuario\Index.cshtml" />
+    <Content Include="Views\Usuario\LeftPanelPartial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\UploadControl\UploadFolder\" />
+    <Folder Include="Content\UploadControl\xml\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51727</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44354/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

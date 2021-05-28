@@ -1,0 +1,16 @@
+@model mcg_load.Esc_Articulos
+
+@{
+    ViewBag.Title = "Saturación Details Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="text-content">
+    @if (Model != null)
+    {
+        <h1 class="title" id="SubjectText">@Model.id_articulo</h1>
+        <p>Issue #@Model.id_escenario</p>
+        <hr/>
+        <p>This is the GridView details page.</p>
+    }
+</div>

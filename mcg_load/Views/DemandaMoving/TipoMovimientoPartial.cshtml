@@ -1,0 +1,19 @@
+﻿@model mcg_load.Models.DemandaMoving
+
+<div class="form-group">
+    @Html.DevExpress().ComboBox(settings =>
+{
+    settings.Name = "TipoMovimiento";
+    settings.CallbackRouteValues = new { Controller = "Articulo", Action = "TipoMovimientoPartial" };
+    settings.Properties.ValueType = typeof(string);
+    settings.Properties.TextField = "Nombre";
+    settings.Properties.ValueField = "TipoMovimientos";
+    settings.Properties.EnableCallbackMode = true;
+    settings.Width = 180;
+    settings.Properties.CallbackPageSize = 20;
+    //settings.Properties.ClientSideEvents.SelectedIndexChanged = "GetSelectedValue";
+    settings.Properties.ClientSideEvents.SelectedIndexChanged = "GetSelectedValue";
+    //settings.Properties.DisplayFormatString = "Assembly v{0}";
+
+}).BindList(mcg_load.Code.Helpers.LineasHelper.GetEscTipoMovimiento()).Bind(Model.intValueOption).GetHtml()
+</div>

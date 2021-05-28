@@ -1,0 +1,66 @@
+﻿@model mcg_load.CAT_Plantas
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CAT_Plantas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.org_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.org_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre_planta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre_planta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Site)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Site)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Site_largo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Site_largo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Planta }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

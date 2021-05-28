@@ -1,0 +1,304 @@
+@using System.Web.UI.WebControls
+@using DevExpress.DataAccess.Native.Data
+@using mcg_load.Code
+@model List<mcg_load.vw_demanda>
+
+@{
+    var gridView = Html.DevExpress().GridView(gridViewSettings =>
+    {
+        gridViewSettings.Name = "gridView";
+        gridViewSettings.KeyFieldName = "id_articulo;id_escenario;Fecha";
+
+        gridViewSettings.CallbackRouteValues = new
+        {
+            Controller = "Saturacion",
+            Action = "SaturacionPartial"
+        };
+        gridViewSettings.CustomActionRouteValues = new {Controller = "Saturacion", Action = "SaturacionCustomActionPartial"};
+        gridViewSettings.SettingsEditing.AddNewRowRouteValues = new {Controller = "Saturacion", Action = "SaturacionAddNewPartial"};
+        gridViewSettings.SettingsEditing.UpdateRowRouteValues = new {Controller = "Saturacion", Action = "SaturacionUpdatePartial"};
+
+        gridViewSettings.EnablePagingGestures = AutoBoolean.False;
+
+        gridViewSettings.ControlStyle.CssClass = "grid-view";
+        gridViewSettings.Width = Unit.Percentage(100);
+
+        gridViewSettings.Styles.Cell.Wrap = DefaultBoolean.False;
+        gridViewSettings.Styles.PagerBottomPanel.CssClass = "pager";
+        gridViewSettings.Styles.FocusedRow.CssClass = "focused";
+
+        gridViewSettings.SettingsBehavior.AllowFocusedRow = true;
+        gridViewSettings.SettingsBehavior.AllowSelectByRowClick = true;
+        gridViewSettings.SettingsBehavior.AllowEllipsisInText = true;
+        gridViewSettings.SettingsBehavior.AllowDragDrop = false;
+
+        gridViewSettings.SettingsSearchPanel.CustomEditorName = "searchButtonEdit";
+
+        gridViewSettings.SettingsEditing.Mode = GridViewEditingMode.PopupEditForm;
+        gridViewSettings.SettingsEditing.EditFormColumnCount = 2;
+
+        gridViewSettings.SettingsSearchPanel.CustomEditorName = "searchButtonEdit";
+
+        gridViewSettings.Settings.VerticalScrollBarMode = ScrollBarMode.Hidden;
+        gridViewSettings.Settings.HorizontalScrollBarMode = ScrollBarMode.Auto;
+        gridViewSettings.Settings.ShowHeaderFilterButton = true;
+
+        gridViewSettings.SettingsPager.PageSize = 30;
+        gridViewSettings.SettingsPager.EnableAdaptivity = true;
+        gridViewSettings.SettingsPager.PageSizeItemSettings.Visible = true;
+
+        gridViewSettings.SettingsExport.EnableClientSideExportAPI = true;
+        gridViewSettings.SettingsExport.ExportSelectedRowsOnly = true;
+
+        gridViewSettings.SettingsPopup.EditForm.SettingsAdaptivity.MaxWidth = 800;
+        gridViewSettings.SettingsPopup.EditForm.SettingsAdaptivity.Mode = PopupControlAdaptivityMode.Always;
+        gridViewSettings.SettingsPopup.EditForm.SettingsAdaptivity.VerticalAlign = PopupAdaptiveVerticalAlign.WindowCenter;
+
+        gridViewSettings.EditFormLayoutProperties.SettingsAdaptivity.AdaptivityMode = FormLayoutAdaptivityMode.SingleColumnWindowLimit;
+        gridViewSettings.EditFormLayoutProperties.SettingsAdaptivity.SwitchToSingleColumnAtWindowInnerWidth = 600;
+        gridViewSettings.EditFormLayoutProperties.ColCount = 2;
+        gridViewSettings.EditFormLayoutProperties.Items.Add("id_articulo").RequiredMarkDisplayMode = FieldRequiredMarkMode.Required;
+        gridViewSettings.EditFormLayoutProperties.Items.Add("id_escenario").RequiredMarkDisplayMode = FieldRequiredMarkMode.Required;
+        gridViewSettings.EditFormLayoutProperties.Items.Add("Fecha").RequiredMarkDisplayMode = FieldRequiredMarkMode.Required;
+
+        gridViewSettings.EditFormLayoutProperties.Items.Add("fecha02").RequiredMarkDisplayMode = FieldRequiredMarkMode.Required;
+        gridViewSettings.EditFormLayoutProperties.Items.Add("anio").RequiredMarkDisplayMode = FieldRequiredMarkMode.Required;
+        gridViewSettings.EditFormLayoutProperties.Items.Add("mes").RequiredMarkDisplayMode = FieldRequiredMarkMode.Required;
+        gridViewSettings.EditFormLayoutProperties.Items.Add("dia").RequiredMarkDisplayMode = FieldRequiredMarkMode.Required;
+        gridViewSettings.EditFormLayoutProperties.Items.Add("Planta").RequiredMarkDisplayMode = FieldRequiredMarkMode.Required;
+
+
+        gridViewSettings.EditFormLayoutProperties.Items.Add("Línea_Moldeo");
+        gridViewSettings.EditFormLayoutProperties.Items.AddCommandItem(itemSettings =>
+        {
+            itemSettings.ColumnSpan = 2;
+            itemSettings.HorizontalAlign = FormLayoutHorizontalAlign.Right;
+        });
+
+        gridViewSettings.CommandColumn.Visible = true;
+        gridViewSettings.CommandColumn.ShowSelectCheckbox = true;
+        gridViewSettings.CommandColumn.SelectAllCheckboxMode = GridViewSelectAllCheckBoxMode.AllPages;
+        gridViewSettings.CommandColumn.VisibleIndex = 0;
+        gridViewSettings.CommandColumn.Width = Unit.Pixel(52);
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "id_articulo";
+            columnSettings.Caption = "ID";
+            columnSettings.Width = Unit.Pixel(300);
+            columnSettings.CellStyle.HorizontalAlign = HorizontalAlign.Left;
+            columnSettings.ExportCellStyle.HorizontalAlign = HorizontalAlign.Left;
+            columnSettings.SetDataItemTemplateContent(c =>
+            {
+                Html.DevExpress().HyperLink(hyperLinkSettings =>
+                {
+                    hyperLinkSettings.Properties.Text = (string) DataBinder.Eval(c.DataItem, "id_articulo").ToString();
+                    hyperLinkSettings.NavigateUrl = Url.Action("SaturacionDetailsPage", "Saturacion", new {id = DataBinder.Eval(c.DataItem, "id_articulo")});
+                }).Render();
+            });
+
+            columnSettings.Settings.FilterMode = ColumnFilterMode.DisplayText;
+            columnSettings.Settings.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
+        });
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Fecha";
+            columnSettings.Caption = "Fecha";
+            columnSettings.Visible = true;
+        });
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "fecha02";
+            columnSettings.Caption = "fecha02";
+            columnSettings.Visible = true;
+        });
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "anio";
+            columnSettings.Caption = "anio";
+            columnSettings.Visible = true;
+        });
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "mes";
+            columnSettings.Caption = "mes";
+            columnSettings.Visible = true;
+        });
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "dia";
+            columnSettings.Caption = "dia";
+            columnSettings.Visible = true;
+        });
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Planta";
+            columnSettings.Caption = "Planta";
+            columnSettings.Visible = true;
+            columnSettings.ColumnType = MVCxGridViewColumnType.ComboBox;
+
+            var comboBoxProperties = columnSettings.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.ValueField = "Planta";
+            comboBoxProperties.TextField = "Nombre";
+            //comboBoxProperties.ImageUrlField = "PhotoUrl";
+            comboBoxProperties.ValueType = typeof(string);
+            comboBoxProperties.ItemImage.Width = Unit.Pixel(32);
+            comboBoxProperties.ItemImage.Height = Unit.Pixel(32);
+            comboBoxProperties.DataSource = SaturacionHelper.GetPlantas();
+        });
+
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Org__ID";
+            columnSettings.Caption = "Org__ID";
+            columnSettings.Visible = false;
+        });
+
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "id_escenario";
+            columnSettings.Caption = "id_escenario";
+            columnSettings.Width = Unit.Pixel(150);
+        });
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "fecha02";
+            columnSettings.Caption = "Fecha";
+            columnSettings.PropertiesEdit.DisplayFormatString = "d";
+        });
+
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Línea_Moldeo";
+            columnSettings.Caption = "Línea Moldeo";
+            columnSettings.Width = Unit.Pixel(150);
+        });
+
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Cantidad";
+            columnSettings.Caption = "Cantidad -Cavidades-";
+            columnSettings.Visible = true;
+        });
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Cantidad_base";
+            columnSettings.Caption = "Cantidad_base -Cavidades-";
+            columnSettings.Visible = true;
+        });
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Interno";
+            columnSettings.Caption = "Interno -Rechazo-";
+            columnSettings.Visible = true;
+        });
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Externo";
+            columnSettings.Caption = "Externo -Rechazo-";
+            columnSettings.Visible = true;
+        });
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Combinado";
+            columnSettings.Caption = "Combinado -Rechazo-";
+            columnSettings.Visible = true;
+        });
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Interno_base";
+            columnSettings.Caption = "Interno_base -Rechazo-";
+            columnSettings.Visible = true;
+        });
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Externo_base";
+            columnSettings.Caption = "Externo_base -Rechazo-";
+            columnSettings.Visible = true;
+        });
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Combinado_base";
+            columnSettings.Caption = "Combinado_base -Rechazo-";
+            columnSettings.Visible = true;
+        });
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Valor";
+            columnSettings.Caption = "Valor -Velocidad-";
+            columnSettings.Visible = true;
+        });
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Valor_base";
+            columnSettings.Caption = "Valor_base -Velocidad-";
+            columnSettings.Visible = true;
+        });
+
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Customer_Name";
+            columnSettings.Caption = "Customer_Name";
+            columnSettings.Width = Unit.Pixel(150);
+        });
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Industria";
+            columnSettings.Caption = "Industria";
+            columnSettings.Width = Unit.Pixel(150);
+        });
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Tipo_Pieza";
+            columnSettings.Caption = "Tipo_Pieza";
+            columnSettings.Width = Unit.Pixel(150);
+        });
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "No__Oracle";
+            columnSettings.Caption = "No__Oracle";
+            columnSettings.Width = Unit.Pixel(150);
+        });
+
+        gridViewSettings.ClientSideEvents.Init = "onGridViewInit";
+        gridViewSettings.ClientSideEvents.SelectionChanged = "onGridViewSelectionChanged";
+        gridViewSettings.ClientSideEvents.BeginCallback = "onGridViewBeginCallback";
+
+        gridViewSettings.InitNewRow += (s, e) =>
+        {
+            e.NewValues["Kind"] = 1;
+            e.NewValues["Priority"] = 2;
+            e.NewValues["Status"] = 1;
+            e.NewValues["IsDraft"] = true;
+            e.NewValues["IsArchived"] = false;
+        };
+        gridViewSettings.CellEditorInitialize = (s, e) => { ((ASPxEdit) e.Editor).ValidationSettings.Display = Display.Dynamic; };
+    });
+    if (ViewBag.GeneralError != null)
+    {
+        gridView.SetEditErrorText(ViewBag.GeneralError);
+    }
+}
+
+@gridView.Bind(Model).GetHtml()

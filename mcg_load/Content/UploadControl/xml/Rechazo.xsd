@@ -1,0 +1,20 @@
+<?xml version="1.0" standalone="yes"?>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+  <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="Rechazo" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Rechazo" msprop:visiblestate="visible">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" type="xs:double" minOccurs="0" />
+              <xs:element name="Año" type="xs:double" minOccurs="0" />
+              <xs:element name="Interno" type="xs:double" minOccurs="0" />
+              <xs:element name="Externo" type="xs:double" minOccurs="0" />
+              <xs:element name="Combinado" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

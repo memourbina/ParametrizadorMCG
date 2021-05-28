@@ -1,0 +1,224 @@
+@using System.Web.UI.WebControls
+@using DevExpress.DataAccess.Native.Data
+@using mcg_load.Code
+@using Microsoft.AspNet.Identity
+@model List<mcg_load.Esc_Rechazo>
+
+@{
+    var gridView = Html.DevExpress().GridView(gridViewSettings =>
+    {
+        gridViewSettings.Name = "gridView";
+        gridViewSettings.KeyFieldName = "id_articulo;Año;id_escenario";
+
+        gridViewSettings.CallbackRouteValues = new
+        {
+            Controller = "Rechazos",
+            Action = "RechazosPartial"
+};
+        gridViewSettings.CustomActionRouteValues = new {Controller = "Rechazos", Action = "RechazosCustomActionPartial"};
+        gridViewSettings.SettingsEditing.AddNewRowRouteValues = new {Controller = "Rechazos", Action = "RechazosAddNewPartial"};
+        gridViewSettings.SettingsEditing.UpdateRowRouteValues = new {Controller = "Escenarios", Action = "EscenariosUpdatePartial"};
+
+        gridViewSettings.EnablePagingGestures = AutoBoolean.False;
+
+        gridViewSettings.ControlStyle.CssClass = "grid-view";
+        gridViewSettings.Width = Unit.Percentage(100);
+
+        gridViewSettings.Styles.Cell.Wrap = DefaultBoolean.False;
+        gridViewSettings.Styles.PagerBottomPanel.CssClass = "pager";
+        gridViewSettings.Styles.FocusedRow.CssClass = "focused";
+
+        gridViewSettings.SettingsBehavior.AllowFocusedRow = true;
+        gridViewSettings.SettingsBehavior.AllowSelectByRowClick = true;
+        gridViewSettings.SettingsBehavior.AllowEllipsisInText = true;
+        gridViewSettings.SettingsBehavior.AllowDragDrop = false;
+
+        gridViewSettings.SettingsSearchPanel.CustomEditorName = "searchButtonEdit";
+
+        gridViewSettings.SettingsEditing.Mode = GridViewEditingMode.PopupEditForm;
+        gridViewSettings.SettingsEditing.EditFormColumnCount = 2;
+
+        gridViewSettings.SettingsSearchPanel.CustomEditorName = "searchButtonEdit";
+
+        gridViewSettings.Settings.VerticalScrollBarMode = ScrollBarMode.Hidden;
+        gridViewSettings.Settings.HorizontalScrollBarMode = ScrollBarMode.Auto;
+        gridViewSettings.Settings.ShowHeaderFilterButton = true;
+
+        gridViewSettings.SettingsPager.PageSize = 30;
+        gridViewSettings.SettingsPager.EnableAdaptivity = true;
+        gridViewSettings.SettingsPager.PageSizeItemSettings.Visible = true;
+
+        gridViewSettings.SettingsExport.EnableClientSideExportAPI = true;
+        gridViewSettings.SettingsExport.ExportSelectedRowsOnly = true;
+
+        gridViewSettings.SettingsPopup.EditForm.SettingsAdaptivity.MaxWidth = 800;
+        gridViewSettings.SettingsPopup.EditForm.SettingsAdaptivity.Mode = PopupControlAdaptivityMode.Always;
+        gridViewSettings.SettingsPopup.EditForm.SettingsAdaptivity.VerticalAlign = PopupAdaptiveVerticalAlign.WindowCenter;
+
+        gridViewSettings.EditFormLayoutProperties.SettingsAdaptivity.AdaptivityMode = FormLayoutAdaptivityMode.SingleColumnWindowLimit;
+        gridViewSettings.EditFormLayoutProperties.SettingsAdaptivity.SwitchToSingleColumnAtWindowInnerWidth = 600;
+        gridViewSettings.EditFormLayoutProperties.ColCount = 2;
+
+        gridViewSettings.EditFormLayoutProperties.Items.Add("Interno");
+        gridViewSettings.EditFormLayoutProperties.Items.Add("Externo");
+        gridViewSettings.EditFormLayoutProperties.Items.Add("Combinado");
+
+
+        gridViewSettings.EditFormLayoutProperties.Items.AddCommandItem(itemSettings =>
+        {
+            itemSettings.ColumnSpan = 2;
+            itemSettings.HorizontalAlign = FormLayoutHorizontalAlign.Right;
+        });
+
+        gridViewSettings.CommandColumn.Visible = true;
+        gridViewSettings.CommandColumn.ShowSelectCheckbox = true;
+        gridViewSettings.CommandColumn.SelectAllCheckboxMode = GridViewSelectAllCheckBoxMode.AllPages;
+        gridViewSettings.CommandColumn.VisibleIndex = 0;
+        gridViewSettings.CommandColumn.Width = Unit.Pixel(52);
+
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "id_articulo";
+            columnSettings.Caption = "ID";
+            columnSettings.Width = Unit.Pixel(80);
+            columnSettings.Visible = false;
+            columnSettings.SetDataItemTemplateContent(c =>
+            {
+                if (Convert.ToInt32(DataBinder.Eval(c.DataItem, "id_articulo")) != 0)
+                    ViewContext.Writer.Write(string.Format("<span class='votes-column'>{0}</span>", DataBinder.Eval(c.DataItem, "id_articulo")));
+            });
+        });
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Esc_Articulos.Description";
+            columnSettings.Caption = "Articulo";
+            columnSettings.Width = Unit.Pixel(180);
+        });
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Año";
+            columnSettings.Caption = "Año";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(80);
+            columnSettings.SetDataItemTemplateContent(c =>
+            {
+                if (Convert.ToInt32(DataBinder.Eval(c.DataItem, "Año")) != 0)
+                    ViewContext.Writer.Write(string.Format("<span class='votes-column'>{0}</span>", DataBinder.Eval(c.DataItem, "Año")));
+            });
+        });
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "id_escenario";
+            columnSettings.Caption = "id_escenario";
+            columnSettings.Visible = true;
+            columnSettings.Width = Unit.Pixel(80);
+            columnSettings.Visible = false;
+            columnSettings.SetDataItemTemplateContent(c =>
+            {
+                if (Convert.ToInt32(DataBinder.Eval(c.DataItem, "id_escenario")) != 0)
+                    ViewContext.Writer.Write(string.Format("<span class='votes-column'>{0}</span>", DataBinder.Eval(c.DataItem, "id_escenario")));
+            });
+        });
+
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "AspNetUsers.UserName";
+            columnSettings.Caption = "UserId";
+            columnSettings.Visible = false;
+            columnSettings.Width = Unit.Pixel(150);
+        });
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Interno";
+            columnSettings.Caption = "Interno";
+            columnSettings.PropertiesEdit.DisplayFormatString = "n";
+        });
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Interno_base";
+            columnSettings.Caption = "Interno_base";
+            columnSettings.PropertiesEdit.DisplayFormatString = "n";
+        });
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Externo";
+            columnSettings.Caption = "Externo";
+            columnSettings.PropertiesEdit.DisplayFormatString = "n";
+        });
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Externo_base";
+            columnSettings.Caption = "Externo_base";
+            columnSettings.PropertiesEdit.DisplayFormatString = "n";
+        });
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Combinado";
+            columnSettings.Caption = "Combinado";
+            columnSettings.PropertiesEdit.DisplayFormatString = "n";
+        });
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "Combinado_base";
+            columnSettings.Caption = "Combinado_base";
+            columnSettings.PropertiesEdit.DisplayFormatString = "n";
+        });
+
+        gridViewSettings.Columns.Add(columnSettings =>
+        {
+            columnSettings.FieldName = "eliminado";
+            columnSettings.Caption = "Estado";
+            columnSettings.ColumnType = MVCxGridViewColumnType.CheckBox;
+
+            columnSettings.EditorProperties().ComboBox(comboBoxProperties =>
+            {
+                comboBoxProperties.ShowImageInEditBox = true;
+                comboBoxProperties.ItemImage.Width = 16;
+                comboBoxProperties.ItemImage.Height = 16;
+                comboBoxProperties.Items.Add("Disponible", false);
+                comboBoxProperties.Items.Add("No Disponible", true);
+            });
+
+            columnSettings.SetDataItemTemplateContent(c =>
+            {
+                var eliminados = (bool)DataBinder.Eval(c.DataItem, "eliminado") == true ? "no-disponible" : "disponible";
+                ViewContext.Writer.Write(string.Format("<span class='status-column {0}'></span>", eliminados));
+            });
+
+        });
+
+
+        gridViewSettings.ClientSideEvents.Init = "onGridViewInit";
+        gridViewSettings.ClientSideEvents.SelectionChanged = "onGridViewSelectionChanged";
+        gridViewSettings.ClientSideEvents.BeginCallback = "onGridViewBeginCallback";
+
+        gridViewSettings.InitNewRow += (s, e) =>
+        {
+            e.NewValues["id_escenario"] = -1;
+            e.NewValues["eliminado"] = false;
+            e.NewValues["activo"] = true;
+            e.NewValues["UserId"] = User.Identity.GetUserId();
+            e.NewValues["activo"] = true;
+            e.NewValues["fecha"] = DateTime.Now;
+
+        };
+        gridViewSettings.CellEditorInitialize = (s, e) => { ((ASPxEdit) e.Editor).ValidationSettings.Display = Display.Dynamic; };
+    });
+    if (ViewBag.GeneralError != null)
+    {
+        gridView.SetEditErrorText(ViewBag.GeneralError);
+    }
+}
+
+@gridView.Bind(Model).GetHtml()

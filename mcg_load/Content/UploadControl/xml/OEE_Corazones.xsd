@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="yes"?>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+  <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="OEE_Corazones" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="OEE_Corazones" msprop:visiblestate="visible">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Año" type="xs:double" minOccurs="0" />
+              <xs:element name="Rendimiento" type="xs:double" minOccurs="0" />
+              <xs:element name="Disponibilidad" type="xs:double" minOccurs="0" />
+              <xs:element name="Rechazo" type="xs:double" minOccurs="0" />
+              <xs:element name="OEE_x0020_sin_x0020_rechazo" type="xs:double" minOccurs="0" />
+              <xs:element name="OEE" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

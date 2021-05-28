@@ -1,0 +1,588 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="mcg_saturacionModelStoreContainer" CdmEntityContainer="mcg_saturacionEntities">
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="mcg_saturacionModel.AspNetRoles">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="mcg_saturacionModel.AspNetUserClaims">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="mcg_saturacionModel.AspNetUserLogins">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="mcg_saturacionModel.AspNetUsers">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cat_Bitacora">
+      <EntityTypeMapping TypeName="mcg_saturacionModel.Cat_Bitacora">
+        <MappingFragment StoreEntitySet="Cat_Bitacora">
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="id_escenario" ColumnName="id_escenario" />
+          <ScalarProperty Name="nombre_tabla" ColumnName="nombre_tabla" />
+          <ScalarProperty Name="nombre_campo" ColumnName="nombre_campo" />
+          <ScalarProperty Name="Valor_anterior" ColumnName="Valor_anterior" />
+          <ScalarProperty Name="valor_nuevo" ColumnName="valor_nuevo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CAT_Plantas">
+      <EntityTypeMapping TypeName="mcg_saturacionModel.CAT_Plantas">
+        <MappingFragment StoreEntitySet="CAT_Plantas">
+          <ScalarProperty Name="Planta" ColumnName="Planta" />
+          <ScalarProperty Name="org_id" ColumnName="org_id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="nombre_planta" ColumnName="nombre_planta" />
+          <ScalarProperty Name="OI" ColumnName="OI" />
+          <ScalarProperty Name="Site" ColumnName="Site" />
+          <ScalarProperty Name="Site_largo" ColumnName="Site_largo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Esc_Actualizacion">
+      <EntityTypeMapping TypeName="mcg_saturacionModel.Esc_Actualizacion">
+        <MappingFragment StoreEntitySet="Esc_Actualizacion">
+          <ScalarProperty Name="id_actualizacion" ColumnName="id_actualizacion" />
+          <ScalarProperty Name="fecha_actualizacion" ColumnName="fecha_actualizacion" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="UserId_modifico" ColumnName="UserId_modifico" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Esc_Año">
+      <EntityTypeMapping TypeName="mcg_saturacionModel.Esc_Año">
+        <MappingFragment StoreEntitySet="Esc_Año">
+          <ScalarProperty Name="Año" ColumnName="Año" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Esc_Articulos">
+      <EntityTypeMapping TypeName="mcg_saturacionModel.Esc_Articulos">
+        <MappingFragment StoreEntitySet="Esc_Articulos">
+          <ScalarProperty Name="id_articulo" ColumnName="id_articulo" />
+          <ScalarProperty Name="id_escenario" ColumnName="id_escenario" />
+          <ScalarProperty Name="Org__ID" ColumnName="Org# ID" />
+          <ScalarProperty Name="Escenario" ColumnName="Escenario" />
+          <ScalarProperty Name="Probabilidad" ColumnName="Probabilidad" />
+          <ScalarProperty Name="Línea_Moldeo" ColumnName="Línea Moldeo" />
+          <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+          <ScalarProperty Name="Customer_Name" ColumnName="Customer Name" />
+          <ScalarProperty Name="Industria" ColumnName="Industria" />
+          <ScalarProperty Name="Tipo_Pieza" ColumnName="Tipo Pieza" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="No__Oracle" ColumnName="No# Oracle" />
+          <ScalarProperty Name="Customer_PN" ColumnName="Customer PN" />
+          <ScalarProperty Name="Unit_Weight" ColumnName="Unit Weight" />
+          <ScalarProperty Name="Mercado" ColumnName="Mercado" />
+          <ScalarProperty Name="Tipo_de_Hierro" ColumnName="Tipo de Hierro" />
+          <ScalarProperty Name="Grado_de_Hierro" ColumnName="Grado de Hierro" />
+          <ScalarProperty Name="OEM" ColumnName="OEM" />
+          <ScalarProperty Name="Plataforma" ColumnName="Plataforma" />
+          <ScalarProperty Name="Sistema" ColumnName="Sistema" />
+          <ScalarProperty Name="Cavs____Soplo" ColumnName="Cavs /  Soplo" />
+          <ScalarProperty Name="Soplos___Hora" ColumnName="Soplos / Hora" />
+          <ScalarProperty Name="Cor___pza" ColumnName="Cor / pza" />
+          <ScalarProperty Name="Maquina" ColumnName="Maquina" />
+          <ScalarProperty Name="id_maquina" ColumnName="id_maquina" />
+          <ScalarProperty Name="Planta" ColumnName="Planta" />
+          <ScalarProperty Name="Planta01" ColumnName="Planta01" />
+          <ScalarProperty Name="Linea" ColumnName="Linea" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="UserId_modifico" ColumnName="UserId_modifico" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Esc_Calendario">
+      <EntityTypeMapping TypeName="mcg_saturacionModel.Esc_Calendario">
+        <MappingFragment StoreEntitySet="Esc_Calendario">
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="fecha02" ColumnName="fecha02" />
+          <ScalarProperty Name="dia" ColumnName="dia" />
+          <ScalarProperty Name="dia_semana" ColumnName="dia_semana" />
+          <ScalarProperty Name="dia_semana_desc" ColumnName="dia_semana_desc" />
+          <ScalarProperty Name="es_fin_semana" ColumnName="es_fin_semana" />
+          <ScalarProperty Name="es_asueto" ColumnName="es_asueto" />
+          <ScalarProperty Name="asueto_desc" ColumnName="asueto_desc" />
+          <ScalarProperty Name="dia_mes" ColumnName="dia_mes" />
+          <ScalarProperty Name="dia_anio" ColumnName="dia_anio" />
+          <ScalarProperty Name="semana_mes" ColumnName="semana_mes" />
+          <ScalarProperty Name="semana_anio" ColumnName="semana_anio" />
+          <ScalarProperty Name="semana_anio_iso" ColumnName="semana_anio_iso" />
+          <ScalarProperty Name="mes" ColumnName="mes" />
+          <ScalarProperty Name="mes_desc" ColumnName="mes_desc" />
+          <ScalarProperty Name="trimestre" ColumnName="trimestre" />
+          <ScalarProperty Name="trimestre_desc" ColumnName="trimestre_desc" />
+          <ScalarProperty Name="anio" ColumnName="anio" />
+          <ScalarProperty Name="mmyyyy" ColumnName="mmyyyy" />
+          <ScalarProperty Name="mes_anio" ColumnName="mes_anio" />
+          <ScalarProperty Name="primer_dia_mes" ColumnName="primer_dia_mes" />
+          <ScalarProperty Name="ultimo_dia_mes" ColumnName="ultimo_dia_mes" />
+          <ScalarProperty Name="primer_dia_trimestre" ColumnName="primer_dia_trimestre" />
+          <ScalarProperty Name="ultimo_dia_trimestre" ColumnName="ultimo_dia_trimestre" />
+          <ScalarProperty Name="primer_dia_anio" ColumnName="primer_dia_anio" />
+          <ScalarProperty Name="ultimo_dia_anio" ColumnName="ultimo_dia_anio" />
+          <ScalarProperty Name="primer_dia_siguiente_mes" ColumnName="primer_dia_siguiente_mes" />
+          <ScalarProperty Name="primer_dia_siguiente_anio" ColumnName="primer_dia_siguiente_anio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Esc_Cavidades">
+      <EntityTypeMapping TypeName="mcg_saturacionModel.Esc_Cavidades">
+        <MappingFragment StoreEntitySet="Esc_Cavidades">
+          <ScalarProperty Name="id_articulo" ColumnName="id_articulo" />
+          <ScalarProperty Name="Año" ColumnName="Año" />
+          <ScalarProperty Name="id_escenario" ColumnName="id_escenario" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Cantidad_base" ColumnName="Cantidad_base" />
+          <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="UserId_modifico" ColumnName="UserId_modifico" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Esc_Demanda">
+      <EntityTypeMapping TypeName="mcg_saturacionModel.Esc_Demanda">
+        <MappingFragment StoreEntitySet="Esc_Demanda">
+          <ScalarProperty Name="id_articulo" ColumnName="id_articulo" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="id_escenario" ColumnName="id_escenario" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="Valor_base" ColumnName="Valor_base" />
+          <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+          <ScalarProperty Name="modificacion" ColumnName="modificacion" />
+          <ScalarProperty Name="UserId_modifico" ColumnName="UserId_modifico" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Esc_Demanda_staging">
+      <EntityTypeMapping TypeName="mcg_saturacionModel.Esc_Demanda_staging">
+        <MappingFragment StoreEntitySet="Esc_Demanda_staging">
+          <ScalarProperty Name="id_articulo" ColumnName="id_articulo" />
+          <ScalarProperty Name="fecha02" ColumnName="fecha02" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="id_escenario" ColumnName="id_escenario" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="Valor_base" ColumnName="Valor_base" />
+          <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Esc_Escenario">
+      <EntityTypeMapping TypeName="mcg_saturacionModel.Esc_Escenario">
+        <MappingFragment StoreEntitySet="Esc_Escenario">
+          <ScalarProperty Name="id_escenario" ColumnName="id_escenario" />
+          <ScalarProperty Name="id_UpLoad" ColumnName="id_UpLoad" />
+          <ScalarProperty Name="id_tipo_escenario" ColumnName="id_tipo_escenario" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="comentario" ColumnName="comentario" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="UserId_modifico" ColumnName="UserId_modifico" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Esc_File_Upload">
+      <EntityTypeMapping TypeName="mcg_saturacionModel.Esc_File_Upload">
+        <MappingFragment StoreEntitySet="Esc_File_Upload">
+          <ScalarProperty Name="id_UpLoad" ColumnName="id_UpLoad" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="comentario" ColumnName="comentario" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="ContentLength" ColumnName="ContentLength" />
+          <ScalarProperty Name="ContentType" ColumnName="ContentType" />
+          <ScalarProperty Name="TempFileName" ColumnName="TempFileName" />
+          <ScalarProperty Name="date_uplodad" ColumnName="date_uplodad" />
+          <ScalarProperty Name="hashFile" ColumnName="hashFile" />
+          <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Esc_Horas">
+      <EntityTypeMapping TypeName="mcg_saturacionModel.Esc_Horas">
+        <MappingFragment StoreEntitySet="Esc_Horas">
+          <ScalarProperty Name="Planta" ColumnName="Planta" />
+          <ScalarProperty Name="Linea" ColumnName="Linea" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="id_escenario" ColumnName="id_escenario" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Horas" ColumnName="Horas" />
+          <ScalarProperty Name="Horas_base" ColumnName="Horas_base" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="UserId_modifico" ColumnName="UserId_modifico" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Esc_Horas_staging">
+      <EntityTypeMapping TypeName="mcg_saturacionModel.Esc_Horas_staging">
+        <MappingFragment StoreEntitySet="Esc_Horas_staging">
+          <ScalarProperty Name="Planta" ColumnName="Planta" />
+          <ScalarProperty Name="Linea" ColumnName="Linea" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="id_escenario" ColumnName="id_escenario" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Horas" ColumnName="Horas" />
+          <ScalarProperty Name="Horas_base" ColumnName="Horas_base" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="UserId_modifico" ColumnName="UserId_modifico" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Esc_HorasCorazones">
+      <EntityTypeMapping TypeName="mcg_saturacionModel.Esc_HorasCorazones">
+        <MappingFragment StoreEntitySet="Esc_HorasCorazones">
+          <ScalarProperty Name="Maquina" ColumnName="Maquina" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="id_escenario" ColumnName="id_escenario" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Horas" ColumnName="Horas" />
+          <ScalarProperty Name="Horas_base" ColumnName="Horas_base" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="UserId_modifico" ColumnName="UserId_modifico" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Esc_HorasCorazones_staging">
+      <EntityTypeMapping TypeName="mcg_saturacionModel.Esc_HorasCorazones_staging">
+        <MappingFragment StoreEntitySet="Esc_HorasCorazones_staging">
+          <ScalarProperty Name="Maquina" ColumnName="Maquina" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="id_escenario" ColumnName="id_escenario" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Horas" ColumnName="Horas" />
+          <ScalarProperty Name="Horas_base" ColumnName="Horas_base" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="UserId_modifico" ColumnName="UserId_modifico" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Esc_Lineas">
+      <EntityTypeMapping TypeName="mcg_saturacionModel.Esc_Lineas">
+        <MappingFragment StoreEntitySet="Esc_Lineas">
+          <ScalarProperty Name="Linea" ColumnName="Linea" />
+          <ScalarProperty Name="Planta" ColumnName="Planta" />
+          <ScalarProperty Name="id_tipo_linea" ColumnName="id_tipo_linea" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="UserId_modifico" ColumnName="UserId_modifico" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Esc_Lineas_staging">
+      <EntityTypeMapping TypeName="mcg_saturacionModel.Esc_Lineas_staging">
+        <MappingFragment StoreEntitySet="Esc_Lineas_staging">
+          <ScalarProperty Name="Linea" ColumnName="Linea" />
+          <ScalarProperty Name="Planta" ColumnName="Planta" />
+          <ScalarProperty Name="id_tipo_linea" ColumnName="id_tipo_linea" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="UserId_modifico" ColumnName="UserId_modifico" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Esc_Maquina">
+      <EntityTypeMapping TypeName="mcg_saturacionModel.Esc_Maquina">
+        <MappingFragment StoreEntitySet="Esc_Maquina">
+          <ScalarProperty Name="id_maquina" ColumnName="id_maquina" />
+          <ScalarProperty Name="maquina" ColumnName="maquina" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="fecha_alta" ColumnName="fecha_alta" />
+          <ScalarProperty Name="UserId_modifico" ColumnName="UserId_modifico" />
+          <ScalarProperty Name="Planta" ColumnName="Planta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Esc_OEE">
+      <EntityTypeMapping TypeName="mcg_saturacionModel.Esc_OEE">
+        <MappingFragment StoreEntitySet="Esc_OEE">
+          <ScalarProperty Name="Planta" ColumnName="Planta" />
+          <ScalarProperty Name="Linea" ColumnName="Linea" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="id_escenario" ColumnName="id_escenario" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="OEE_SinRechazo" ColumnName="OEE_SinRechazo" />
+          <ScalarProperty Name="OEE_SinRechazo_base" ColumnName="OEE_SinRechazo_base" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="UserId_modifico" ColumnName="UserId_modifico" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Esc_OEE_staging">
+      <EntityTypeMapping TypeName="mcg_saturacionModel.Esc_OEE_staging">
+        <MappingFragment StoreEntitySet="Esc_OEE_staging">
+          <ScalarProperty Name="Planta" ColumnName="Planta" />
+          <ScalarProperty Name="Linea" ColumnName="Linea" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="id_escenario" ColumnName="id_escenario" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="OEE_SinRechazo" ColumnName="OEE_SinRechazo" />
+          <ScalarProperty Name="OEE_SinRechazo_base" ColumnName="OEE_SinRechazo_base" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="UserId_modifico" ColumnName="UserId_modifico" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Esc_OEECorazones">
+      <EntityTypeMapping TypeName="mcg_saturacionModel.Esc_OEECorazones">
+        <MappingFragment StoreEntitySet="Esc_OEECorazones">
+          <ScalarProperty Name="Año" ColumnName="Año" />
+          <ScalarProperty Name="id_escenario" ColumnName="id_escenario" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Rendimiento" ColumnName="Rendimiento" />
+          <ScalarProperty Name="Rendimiento_base" ColumnName="Rendimiento_base" />
+          <ScalarProperty Name="Disponibilidad" ColumnName="Disponibilidad" />
+          <ScalarProperty Name="Disponibilidad_base" ColumnName="Disponibilidad_base" />
+          <ScalarProperty Name="Rechazo" ColumnName="Rechazo" />
+          <ScalarProperty Name="Rechazo_base" ColumnName="Rechazo_base" />
+          <ScalarProperty Name="OEE_sin_rechazo" ColumnName="OEE sin rechazo" />
+          <ScalarProperty Name="OEE_sin_rechazo_base" ColumnName="OEE sin rechazo_base" />
+          <ScalarProperty Name="OEE" ColumnName="OEE" />
+          <ScalarProperty Name="OEE_base" ColumnName="OEE_base" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="UserId_modifico" ColumnName="UserId_modifico" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Esc_OEEDesglose">
+      <EntityTypeMapping TypeName="mcg_saturacionModel.Esc_OEEDesglose">
+        <MappingFragment StoreEntitySet="Esc_OEEDesglose">
+          <ScalarProperty Name="Planta" ColumnName="Planta" />
+          <ScalarProperty Name="Linea" ColumnName="Linea" />
+          <ScalarProperty Name="Año" ColumnName="Año" />
+          <ScalarProperty Name="id_escenario" ColumnName="id_escenario" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Disponibilidad" ColumnName="Disponibilidad" />
+          <ScalarProperty Name="Disponibilidad_base" ColumnName="Disponibilidad_base" />
+          <ScalarProperty Name="Rechazo" ColumnName="Rechazo" />
+          <ScalarProperty Name="Rechazo_base" ColumnName="Rechazo_base" />
+          <ScalarProperty Name="Rendimiento" ColumnName="Rendimiento" />
+          <ScalarProperty Name="Rendimiento_base" ColumnName="Rendimiento_base" />
+          <ScalarProperty Name="OEE_sin_rechazo" ColumnName="OEE sin rechazo" />
+          <ScalarProperty Name="OEE_sin_rechazo_base" ColumnName="OEE sin rechazo_base" />
+          <ScalarProperty Name="OEE" ColumnName="OEE" />
+          <ScalarProperty Name="OEE_base" ColumnName="OEE_base" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="UserId_modifico" ColumnName="UserId_modifico" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Esc_Parametros">
+      <EntityTypeMapping TypeName="mcg_saturacionModel.Esc_Parametros">
+        <MappingFragment StoreEntitySet="Esc_Parametros">
+          <ScalarProperty Name="id_articulo" ColumnName="id_articulo" />
+          <ScalarProperty Name="Año" ColumnName="Año" />
+          <ScalarProperty Name="Parametro" ColumnName="Parametro" />
+          <ScalarProperty Name="id_escenario" ColumnName="id_escenario" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="Valor_base" ColumnName="Valor_base" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="UserId_modifico" ColumnName="UserId_modifico" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Esc_Rechazo">
+      <EntityTypeMapping TypeName="mcg_saturacionModel.Esc_Rechazo">
+        <MappingFragment StoreEntitySet="Esc_Rechazo">
+          <ScalarProperty Name="id_articulo" ColumnName="id_articulo" />
+          <ScalarProperty Name="Año" ColumnName="Año" />
+          <ScalarProperty Name="id_escenario" ColumnName="id_escenario" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Interno" ColumnName="Interno" />
+          <ScalarProperty Name="Externo" ColumnName="Externo" />
+          <ScalarProperty Name="Combinado" ColumnName="Combinado" />
+          <ScalarProperty Name="Interno_base" ColumnName="Interno_base" />
+          <ScalarProperty Name="Externo_base" ColumnName="Externo_base" />
+          <ScalarProperty Name="Combinado_base" ColumnName="Combinado_base" />
+          <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="UserId_modifico" ColumnName="UserId_modifico" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Esc_Tipo_Escenarios">
+      <EntityTypeMapping TypeName="mcg_saturacionModel.Esc_Tipo_Escenarios">
+        <MappingFragment StoreEntitySet="Esc_Tipo_Escenarios">
+          <ScalarProperty Name="id_tipo_escenario" ColumnName="id_tipo_escenario" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Esc_Tipo_linea">
+      <EntityTypeMapping TypeName="mcg_saturacionModel.Esc_Tipo_linea">
+        <MappingFragment StoreEntitySet="Esc_Tipo_linea">
+          <ScalarProperty Name="id_tipo_linea" ColumnName="id_tipo_linea" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+          <ScalarProperty Name="UserId_modifico" ColumnName="UserId_modifico" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Esc_Velocidad">
+      <EntityTypeMapping TypeName="mcg_saturacionModel.Esc_Velocidad">
+        <MappingFragment StoreEntitySet="Esc_Velocidad">
+          <ScalarProperty Name="id_articulo" ColumnName="id_articulo" />
+          <ScalarProperty Name="Año" ColumnName="Año" />
+          <ScalarProperty Name="id_escenario" ColumnName="id_escenario" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="Valor_base" ColumnName="Valor_base" />
+          <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+          <ScalarProperty Name="modificado" ColumnName="modificado" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+          <ScalarProperty Name="UserId_modifico" ColumnName="UserId_modifico" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_demanda">
+      <EntityTypeMapping TypeName="mcg_saturacionModel.vw_demanda">
+        <MappingFragment StoreEntitySet="vw_demanda">
+          <ScalarProperty Name="id_articulo" ColumnName="id_articulo" />
+          <ScalarProperty Name="id_escenario" ColumnName="id_escenario" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="fecha02" ColumnName="fecha02" />
+          <ScalarProperty Name="anio" ColumnName="anio" />
+          <ScalarProperty Name="mes" ColumnName="mes" />
+          <ScalarProperty Name="dia" ColumnName="dia" />
+          <ScalarProperty Name="Planta" ColumnName="Planta" />
+          <ScalarProperty Name="Org__ID" ColumnName="Org# ID" />
+          <ScalarProperty Name="Escenario" ColumnName="Escenario" />
+          <ScalarProperty Name="Probabilidad" ColumnName="Probabilidad" />
+          <ScalarProperty Name="Línea_Moldeo" ColumnName="Línea Moldeo" />
+          <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+          <ScalarProperty Name="Customer_Name" ColumnName="Customer Name" />
+          <ScalarProperty Name="Industria" ColumnName="Industria" />
+          <ScalarProperty Name="Tipo_Pieza" ColumnName="Tipo Pieza" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="No__Oracle" ColumnName="No# Oracle" />
+          <ScalarProperty Name="Customer_PN" ColumnName="Customer PN" />
+          <ScalarProperty Name="Unit_Weight" ColumnName="Unit Weight" />
+          <ScalarProperty Name="Mercado" ColumnName="Mercado" />
+          <ScalarProperty Name="Tipo_de_Hierro" ColumnName="Tipo de Hierro" />
+          <ScalarProperty Name="Grado_de_Hierro" ColumnName="Grado de Hierro" />
+          <ScalarProperty Name="OEM" ColumnName="OEM" />
+          <ScalarProperty Name="Plataforma" ColumnName="Plataforma" />
+          <ScalarProperty Name="Sistema" ColumnName="Sistema" />
+          <ScalarProperty Name="Cavs____Soplo" ColumnName="Cavs /  Soplo" />
+          <ScalarProperty Name="Soplos___Hora" ColumnName="Soplos / Hora" />
+          <ScalarProperty Name="Cor___pza" ColumnName="Cor / pza" />
+          <ScalarProperty Name="Maquina" ColumnName="Maquina" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Cantidad_base" ColumnName="Cantidad_base" />
+          <ScalarProperty Name="Interno" ColumnName="Interno" />
+          <ScalarProperty Name="Externo" ColumnName="Externo" />
+          <ScalarProperty Name="Combinado" ColumnName="Combinado" />
+          <ScalarProperty Name="Interno_base" ColumnName="Interno_base" />
+          <ScalarProperty Name="Externo_base" ColumnName="Externo_base" />
+          <ScalarProperty Name="Combinado_base" ColumnName="Combinado_base" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="Valor_base" ColumnName="Valor_base" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_demanda01">
+      <EntityTypeMapping TypeName="mcg_saturacionModel.vw_demanda01">
+        <MappingFragment StoreEntitySet="vw_demanda01">
+          <ScalarProperty Name="anio" ColumnName="anio" />
+          <ScalarProperty Name="id_articulo" ColumnName="id_articulo" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="id_escenario" ColumnName="id_escenario" />
+          <ScalarProperty Name="Enero" ColumnName="Enero" />
+          <ScalarProperty Name="Febrero" ColumnName="Febrero" />
+          <ScalarProperty Name="Marzo" ColumnName="Marzo" />
+          <ScalarProperty Name="Abril" ColumnName="Abril" />
+          <ScalarProperty Name="Mayo" ColumnName="Mayo" />
+          <ScalarProperty Name="Junio" ColumnName="Junio" />
+          <ScalarProperty Name="Julio" ColumnName="Julio" />
+          <ScalarProperty Name="Agosto" ColumnName="Agosto" />
+          <ScalarProperty Name="Septiembre" ColumnName="Septiembre" />
+          <ScalarProperty Name="Octubre" ColumnName="Octubre" />
+          <ScalarProperty Name="Noviembre" ColumnName="Noviembre" />
+          <ScalarProperty Name="Diciembre" ColumnName="Diciembre" />
+          <ScalarProperty Name="Enero_Base" ColumnName="Enero_Base" />
+          <ScalarProperty Name="Febrero_Base" ColumnName="Febrero_Base" />
+          <ScalarProperty Name="Marzo_Base" ColumnName="Marzo_Base" />
+          <ScalarProperty Name="Abril_Base" ColumnName="Abril_Base" />
+          <ScalarProperty Name="Mayo_Base" ColumnName="Mayo_Base" />
+          <ScalarProperty Name="Junio_Base" ColumnName="Junio_Base" />
+          <ScalarProperty Name="Julio_Base" ColumnName="Julio_Base" />
+          <ScalarProperty Name="Agosto_Base" ColumnName="Agosto_Base" />
+          <ScalarProperty Name="Septiembre_Base" ColumnName="Septiembre_Base" />
+          <ScalarProperty Name="Octubre_Base" ColumnName="Octubre_Base" />
+          <ScalarProperty Name="Noviembre_Base" ColumnName="Noviembre_Base" />
+          <ScalarProperty Name="Diciembre_Base" ColumnName="Diciembre_Base" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="mcg_saturacionModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

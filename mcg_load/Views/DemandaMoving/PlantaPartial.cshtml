@@ -1,0 +1,18 @@
+﻿@model mcg_load.Models.DemandaMoving
+
+<div class="form-group">
+    @Html.DevExpress().ComboBox(settings =>
+{
+    settings.Name = "Planta";
+    settings.CallbackRouteValues = new { Controller = "Articulo", Action = "PlantaPartial" };
+    settings.Properties.ValueType = typeof(string);
+    settings.Properties.TextField = "Nombre";
+    settings.Properties.ValueField = "Planta";
+    settings.Properties.EnableCallbackMode = true;
+    settings.Width = 180;   
+    settings.Properties.CallbackPageSize = 20;
+    settings.Properties.ClientSideEvents.SelectedIndexChanged = "function(s, e) { CallbackPanel.PerformCallback(); }";
+    //settings.Properties.DisplayFormatString = "Assembly v{0}";
+
+}).BindList(mcg_load.Code.Helpers.LineasHelper.GetCatPlantasList()).Bind(Model.Planta).GetHtml()
+</div>

@@ -1,0 +1,48 @@
+﻿@model mcg_load.Models.upload.UploadExcelViewModel
+@{
+    ViewBag.Title = "Index";
+    ViewBag.TitleHome = "Inicio";
+    ViewBag.DescriptionTitle01 = "Creación de Usuarios.";
+}
+
+<div class="text-content">
+
+    @using (Html.BeginForm("FileUploadNewForm", "FileUpload", null, FormMethod.Post, new {enctype = "multipart/form-data"}))
+    {
+        <h4>Carga de archivos de escenarios.</h4>
+        <hr/>
+        <div class="form-group">
+            @Html.LabelFor(x => x.FileAttach)
+        </div>
+        <div class="form-group">
+            Browse…
+            @Html.TextBoxFor(m => m.FileAttach, new {type = "file", placeholder = Html.DisplayNameFor(m => m.FileAttach), @class = "form-control"})
+        </div>
+
+        <div class="form-group">
+            @Html.ValidationMessageFor(x => x.FileAttach)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.Nombre)
+        </div>
+
+        <div class="form-group">
+            @Html.TextBoxFor(m => m.Nombre)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.Message)
+        </div>
+        <div class="form-group">
+            Mensaje
+            @Html.TextBoxFor(m => m.Message)
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit">Upload</button>
+            </div>
+        </div>
+    }
+</div>
